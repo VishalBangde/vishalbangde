@@ -1,94 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Vishal Bangde | Power BI Portfolio</title>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <style>
 
 body{
-    margin:0;
-    font-family: Segoe UI;
-    background:#1f2a40;
-    color:white;
+margin:0;
+font-family:Segoe UI;
+background:#111827;
+color:white;
 }
 
 /* HEADER */
 
 .header{
-    background:#0f172a;
-    padding:20px;
-    font-size:26px;
-    font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0f172a;
+padding:20px 40px;
+font-size:22px;
 }
 
 .header span{
-    color:#f2c811;
+color:#f2c811;
 }
 
-/* GRID DASHBOARD */
+/* DASHBOARD GRID */
 
 .dashboard{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:20px;
-    padding:20px;
+display:grid;
+grid-template-columns: repeat(4,1fr);
+gap:20px;
+padding:20px;
 }
 
-/* CARDS */
+/* CARD */
 
 .card{
-    background:#2b3a55;
-    border-radius:10px;
-    padding:20px;
-    box-shadow:0px 5px 15px rgba(0,0,0,0.4);
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
 }
 
 .card-title{
-    font-size:18px;
-    margin-bottom:10px;
+font-size:16px;
+margin-bottom:10px;
+color:#9ca3af;
 }
 
-/* KPI BOX */
+/* KPI */
 
 .kpi{
-    font-size:30px;
-    color:#f2c811;
+font-size:32px;
+color:#f2c811;
 }
 
-/* PROJECT TABLE */
+/* PROJECT CARDS */
 
-table{
-    width:100%;
-    border-collapse:collapse;
+.projects{
+grid-column: span 2;
 }
 
-th{
-    background:#f2c811;
-    color:black;
-}
-
-td,th{
-    padding:10px;
+.project{
+background:#111827;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
 }
 
 /* SKILLS */
 
 .skills span{
-    background:#f2c811;
-    color:black;
-    padding:5px 10px;
-    margin:5px;
-    border-radius:5px;
-    display:inline-block;
+background:#f2c811;
+color:black;
+padding:6px 12px;
+border-radius:5px;
+margin:5px;
+display:inline-block;
+font-size:12px;
+}
+
+/* CHART */
+
+.chart{
+grid-column: span 2;
 }
 
 /* FOOTER */
 
 .footer{
-    text-align:center;
-    padding:20px;
-    background:#0f172a;
+text-align:center;
+padding:20px;
+background:#0f172a;
 }
 
 </style>
@@ -98,87 +107,70 @@ td,th{
 <body>
 
 <div class="header">
-📊 <span>Vishal Bangde</span> | Power BI Developer Portfolio
+<div>📊 <span>Vishal Bangde</span> | Power BI Developer</div>
+<div>Portfolio Dashboard</div>
 </div>
 
 <div class="dashboard">
 
-<!-- KPI 1 -->
+<!-- KPI -->
 
 <div class="card">
 <div class="card-title">Experience</div>
 <div class="kpi">5.7 Years</div>
-Power BI Development
 </div>
-
-<!-- KPI 2 -->
 
 <div class="card">
 <div class="card-title">Dashboards Built</div>
 <div class="kpi">25+</div>
-Business Reports
 </div>
 
-<!-- KPI 3 -->
-
 <div class="card">
-<div class="card-title">Technologies</div>
-<div class="kpi">6</div>
-Power BI • SQL • DAX
+<div class="card-title">Projects</div>
+<div class="kpi">12</div>
 </div>
 
-<!-- ABOUT -->
-
 <div class="card">
-<div class="card-title">About Me</div>
-Power BI Developer specializing in business dashboards,
-data modeling and performance analytics.
+<div class="card-title">Tools</div>
+<div class="kpi">Power BI</div>
+</div>
+
+<!-- CHART -->
+
+<div class="card chart">
+<div class="card-title">Dashboard Usage</div>
+<canvas id="chart"></canvas>
+</div>
+
+<!-- PROJECTS -->
+
+<div class="card projects">
+
+<div class="card-title">Projects</div>
+
+<div class="project">Sales Dashboard – Power BI</div>
+<div class="project">Finance Performance Dashboard</div>
+<div class="project">Ticket Monitoring Analytics</div>
+<div class="project">Customer Insights Dashboard</div>
+
 </div>
 
 <!-- SKILLS -->
 
 <div class="card">
+
 <div class="card-title">Skills</div>
 
 <div class="skills">
+
 <span>Power BI</span>
 <span>DAX</span>
 <span>SQL</span>
-<span>Excel</span>
 <span>Power Query</span>
+<span>Excel</span>
 <span>Data Modeling</span>
-</div>
 
 </div>
-
-<!-- PROJECTS -->
-
-<div class="card">
-<div class="card-title">Projects</div>
-
-<table>
-
-<tr>
-<th>Project</th>
-<th>Tool</th>
-</tr>
-
-<tr>
-<td>Sales Dashboard</td>
-<td>Power BI</td>
-</tr>
-
-<tr>
-<td>Finance Analytics</td>
-<td>Power BI</td>
-</tr>
-
-<tr>
-<td>Ticket Monitoring</td>
-<td>Power BI</td>
-</tr>
-
-</table>
 
 </div>
 
@@ -187,6 +179,24 @@ data modeling and performance analytics.
 <div class="footer">
 📧 vishal@email.com | 🔗 LinkedIn
 </div>
+
+<script>
+
+const ctx=document.getElementById('chart');
+
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:['Sales','Finance','Operations','Support'],
+datasets:[{
+label:'Dashboard Projects',
+data:[8,6,5,4],
+backgroundColor:'#f2c811'
+}]
+}
+});
+
+</script>
 
 </body>
 </html>
