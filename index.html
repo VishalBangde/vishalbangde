@@ -7,13 +7,16 @@
 <title>Vishal Bangde</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
+/* BACKGROUND */
 
 body{
 margin:0;
 font-family:Segoe UI;
-background:#0f172a;
+background:linear-gradient(135deg,#0f172a,#020617);
 color:white;
 }
 
@@ -38,6 +41,7 @@ margin:6px 0;
 color:white;
 text-decoration:none;
 border-radius:6px;
+transition:0.3s;
 }
 
 .sidebar a:hover{
@@ -51,7 +55,7 @@ margin-left:240px;
 padding:30px;
 }
 
-/* KPI GRID */
+/* GRID */
 
 .grid{
 display:grid;
@@ -59,15 +63,36 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
+/* GLASS CARD */
+
 .card{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
 padding:20px;
-border-radius:10px;
+border-radius:12px;
+transition:0.3s;
 }
 
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* KPI */
+
 .kpi{
-font-size:30px;
+font-size:28px;
 color:#f2c811;
+margin-top:5px;
+}
+
+/* ICON */
+
+.icon{
+font-size:22px;
+color:#f2c811;
+margin-bottom:10px;
 }
 
 /* PROJECTS */
@@ -80,9 +105,15 @@ gap:20px;
 }
 
 .project{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:15px;
-border-radius:8px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:scale(1.05);
+background:#1e293b;
 }
 
 /* SKILLS */
@@ -93,10 +124,11 @@ color:black;
 padding:6px 12px;
 margin:5px;
 display:inline-block;
-border-radius:5px;
+border-radius:6px;
+font-weight:500;
 }
 
-/* DASHBOARD GALLERY */
+/* GALLERY */
 
 .gallery{
 margin-top:25px;
@@ -113,7 +145,6 @@ border-radius:10px;
 
 .gallery-item img{
 width:100%;
-display:block;
 transition:0.4s;
 }
 
@@ -147,7 +178,7 @@ border-radius:6px;
 font-weight:bold;
 }
 
-/* EXPERIENCE LINE */
+/* EXPERIENCE */
 
 #experience{
 margin-top:60px;
@@ -185,7 +216,7 @@ margin-bottom:10px;
 }
 
 .exp-card{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:10px;
 border-radius:6px;
 width:160px;
@@ -193,7 +224,6 @@ width:160px;
 
 .exp-card h4{
 margin:0;
-font-size:14px;
 }
 
 .exp-card p{
@@ -232,21 +262,25 @@ color:#94a3b8;
 <div class="grid">
 
 <div class="card">
+<div class="icon"><i class="fa-solid fa-briefcase"></i></div>
 Experience
 <div class="kpi">7+ Years</div>
 </div>
 
 <div class="card">
+<div class="icon"><i class="fa-solid fa-chart-line"></i></div>
 Dashboards
 <div class="kpi">30+</div>
 </div>
 
 <div class="card">
+<div class="icon"><i class="fa-solid fa-database"></i></div>
 Projects
 <div class="kpi">15+</div>
 </div>
 
 <div class="card">
+<div class="icon"><i class="fa-solid fa-chart-pie"></i></div>
 Primary Tool
 <div class="kpi">Power BI</div>
 </div>
@@ -260,11 +294,11 @@ Primary Tool
 <h3>About Me</h3>
 
 Power BI Developer with 7+ years of experience building interactive dashboards,
-creating optimized data models, and delivering business insights through analytics.
+designing data models, and delivering business insights through analytics.
 
 </div>
 
-<!-- ANALYTICAL TOOLS -->
+<!-- TOOLS -->
 
 <div class="card" style="margin-top:20px">
 
@@ -301,20 +335,15 @@ creating optimized data models, and delivering business insights through analyti
 <div class="projects">
 
 <div class="project">Sales Performance Dashboard</div>
-
 <div class="project">Finance Analytics Dashboard</div>
-
 <div class="project">Ticket Monitoring Dashboard</div>
-
 <div class="project">Customer Insights Dashboard</div>
-
 <div class="project">Operations KPI Dashboard</div>
-
 <div class="project">Marketing Analytics Dashboard</div>
 
 </div>
 
-<!-- DASHBOARD GALLERY -->
+<!-- GALLERY -->
 
 <h2 style="margin-top:40px">Dashboard Gallery</h2>
 
@@ -322,23 +351,17 @@ creating optimized data models, and delivering business insights through analyti
 
 <div class="gallery-item">
 <img src="dashboard1.png">
-<div class="overlay">
-<span>Sales Dashboard</span>
-</div>
+<div class="overlay"><span>Sales Dashboard</span></div>
 </div>
 
 <div class="gallery-item">
 <img src="dashboard2.png">
-<div class="overlay">
-<span>Finance Dashboard</span>
-</div>
+<div class="overlay"><span>Finance Dashboard</span></div>
 </div>
 
 <div class="gallery-item">
 <img src="dashboard3.png">
-<div class="overlay">
-<span>Ticket Dashboard</span>
-</div>
+<div class="overlay"><span>Ticket Dashboard</span></div>
 </div>
 
 </div>
@@ -355,7 +378,7 @@ creating optimized data models, and delivering business insights through analyti
 <div class="exp-dot"></div>
 <div class="exp-card">
 <h4>ICEICO Technologies</h4>
-<p>Nov 2017 – Jan 2023</p>
+<p>2017 – 2023</p>
 </div>
 </div>
 
@@ -363,7 +386,7 @@ creating optimized data models, and delivering business insights through analyti
 <div class="exp-dot"></div>
 <div class="exp-card">
 <h4>Codify Software</h4>
-<p>Mar 2023 – Jan 2024</p>
+<p>2023 – 2024</p>
 </div>
 </div>
 
@@ -371,7 +394,7 @@ creating optimized data models, and delivering business insights through analyti
 <div class="exp-dot"></div>
 <div class="exp-card">
 <h4>Neoquant Solutions</h4>
-<p>Feb 2024 – Nov 2024</p>
+<p>2024</p>
 </div>
 </div>
 
@@ -379,7 +402,7 @@ creating optimized data models, and delivering business insights through analyti
 <div class="exp-dot"></div>
 <div class="exp-card">
 <h4>Camsdata Technologies</h4>
-<p>Mar 2024 – Jun 2024</p>
+<p>2024</p>
 </div>
 </div>
 
@@ -387,7 +410,7 @@ creating optimized data models, and delivering business insights through analyti
 <div class="exp-dot"></div>
 <div class="exp-card">
 <h4>Incresol Software</h4>
-<p>Oct 2025 – Present</p>
+<p>2025 – Present</p>
 </div>
 </div>
 
@@ -415,5 +438,4 @@ backgroundColor:'#f2c811'
 </script>
 
 </body>
-
 </html>
