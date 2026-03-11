@@ -476,14 +476,60 @@ grid-template-columns:1fr
 new Chart(chart1,{
 type:"bar",
 data:{
-labels:["Power BI","SQL","Excel","DAX"],
+labels:[
+"Power BI",
+"SQL",
+"Excel",
+"DAX",
+"Power Platform",
+"Microsoft Fabric",
+"Data Modeling"
+],
 datasets:[{
-data:[90,80,70,65],
-backgroundColor:["#60a5fa","#22d3ee","#34d399","#a855f7"]
+label:"Skill Level",
+data:[95,85,80,78,72,65,75],
+backgroundColor:[
+"#60a5fa",
+"#22d3ee",
+"#34d399",
+"#a855f7",
+"#fbbf24",
+"#f472b6",
+"#38bdf8"
+],
+borderRadius:8,
+barThickness:28
 }]
 },
-options:{plugins:{legend:{display:false}}}
+options:{
+responsive:true,
+plugins:{
+legend:{display:false},
+tooltip:{
+backgroundColor:"#111827",
+titleColor:"#fff",
+bodyColor:"#d1d5db"
+}
+},
+animation:{
+duration:1800,
+easing:"easeOutBounce"
+},
+scales:{
+x:{
+ticks:{color:"#cbd5e1"},
+grid:{display:false}
+},
+y:{
+beginAtZero:true,
+max:100,
+ticks:{color:"#cbd5e1"},
+grid:{color:"#1f2937"}
+}
+}
+}
 })
+
 
 new Chart(chart2,{
 type:"line",
