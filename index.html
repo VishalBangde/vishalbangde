@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <title>Vishal Bangde | Power BI Developer</title>
 
@@ -28,15 +27,16 @@ padding:20px;
 
 .sidebar h2{
 color:#f2c811;
+margin-bottom:30px;
 }
 
 .sidebar a{
 display:block;
+padding:10px;
+margin:8px 0;
 color:white;
 text-decoration:none;
-margin-top:10px;
-padding:10px;
-border-radius:5px;
+border-radius:6px;
 }
 
 .sidebar a:hover{
@@ -50,7 +50,7 @@ margin-left:250px;
 padding:30px;
 }
 
-/* KPI */
+/* KPI GRID */
 
 .kpis{
 display:grid;
@@ -62,11 +62,13 @@ gap:20px;
 background:#1e293b;
 padding:20px;
 border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
 }
 
 .kpi{
-font-size:30px;
+font-size:32px;
 color:#f2c811;
+margin-top:10px;
 }
 
 /* CHART */
@@ -134,7 +136,6 @@ color:#94a3b8;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -145,7 +146,6 @@ color:#94a3b8;
 
 <a href="#">Dashboard</a>
 <a href="#">Projects</a>
-<a href="#">DAX Library</a>
 <a href="#">Skills</a>
 <a href="#">Contact</a>
 
@@ -163,7 +163,7 @@ Experience
 </div>
 
 <div class="card">
-Dashboards
+Dashboards Built
 <div class="kpi" id="dash">0</div>
 </div>
 
@@ -173,7 +173,7 @@ Projects
 </div>
 
 <div class="card">
-Tools
+Core Tool
 <div class="kpi">Power BI</div>
 </div>
 
@@ -232,7 +232,7 @@ Tools
 
 <script>
 
-/* KPI Animation */
+/* KPI COUNTER */
 
 function counter(id,target){
 
@@ -242,7 +242,7 @@ let interval=setInterval(function(){
 
 count++;
 
-document.getElementById(id).innerText=count;
+document.getElementById(id).innerText=count+"+";
 
 if(count>=target) clearInterval(interval);
 
@@ -250,11 +250,11 @@ if(count>=target) clearInterval(interval);
 
 }
 
-counter("exp",6)
-counter("dash",25)
-counter("proj",12)
+counter("exp",7)
+counter("dash",30)
+counter("proj",15)
 
-/* Chart */
+/* CHART */
 
 const ctx=document.getElementById('chart');
 
@@ -263,7 +263,8 @@ type:'bar',
 data:{
 labels:['Sales','Finance','Operations','Support'],
 datasets:[{
-data:[8,6,5,4],
+label:'Projects',
+data:[10,8,6,5],
 backgroundColor:'#f2c811'
 }]
 }
