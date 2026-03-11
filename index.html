@@ -98,6 +98,93 @@ display:inline-block;
 border-radius:5px;
 }
 
+  /* EXPERIENCE SECTION */
+
+#experience{
+margin-top:60px;
+}
+
+#experience h2{
+margin-bottom:30px;
+font-size:28px;
+}
+
+/* Timeline */
+
+.timeline{
+position:relative;
+margin-left:20px;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:20px;
+top:0;
+bottom:0;
+width:4px;
+background:#f2c811;
+}
+
+/* Timeline Item */
+
+.timeline-item{
+position:relative;
+margin-bottom:40px;
+padding-left:60px;
+}
+
+/* Timeline Dot */
+
+.timeline-item::before{
+content:'';
+position:absolute;
+left:10px;
+top:5px;
+width:20px;
+height:20px;
+background:#f2c811;
+border-radius:50%;
+}
+
+/* Content Card */
+
+.timeline-content{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.timeline-content:hover{
+transform:translateY(-5px);
+background:#334155;
+}
+
+/* Titles */
+
+.timeline-content h3{
+margin:0;
+color:#f2c811;
+}
+
+.timeline-content h4{
+margin:5px 0 15px;
+font-size:14px;
+color:#94a3b8;
+}
+
+/* Bullet */
+
+.timeline-content ul{
+padding-left:18px;
+}
+
+.timeline-content li{
+margin-bottom:8px;
+}
+
 </style>
 
 </head>
@@ -140,6 +227,88 @@ Projects
 Primary Tool
 <div class="kpi">Power BI</div>
 </div>
+
+  <!-- EXPERIENCE -->
+<section id="experience">
+
+<h2>Professional Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Sr. Consultant (Power BI)</h3>
+<h4>Incresol Software Services Pvt Ltd • Oct 2025 – Present</h4>
+
+<ul>
+<li>Design enterprise Power BI dashboards for Sales, Finance, and Operations.</li>
+<li>Build optimized data models using star schema.</li>
+<li>Develop advanced SQL queries and ETL workflows.</li>
+<li>Manage Power BI Service, gateways, and scheduled refresh.</li>
+</ul>
+
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Power BI Developer</h3>
+<h4>Camsdata Technologies Pvt Ltd • Mar 2024 – Jun 2024</h4>
+
+<ul>
+<li>Built scalable analytics solutions using Microsoft Fabric.</li>
+<li>Designed hotel performance dashboards tracking revenue and occupancy.</li>
+<li>Implemented Row-Level Security based on roles.</li>
+</ul>
+
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Sr. Power BI Developer</h3>
+<h4>Neoquant Solutions Pvt Ltd • Feb 2024 – Nov 2024</h4>
+
+<ul>
+<li>Created interactive dashboards for leadership teams.</li>
+<li>Developed complex DAX metrics including YTD and rolling averages.</li>
+<li>Integrated SQL Server, Excel, and SharePoint data sources.</li>
+</ul>
+
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Power BI Developer</h3>
+<h4>Codify Software Services Pvt Ltd • Mar 2023 – Jan 2024</h4>
+
+<ul>
+<li>Utilized Microsoft Fabric for unified data management and reporting.</li>
+<li>Constructed advanced DAX metrics for VWAP and performance benchmarking.</li>
+<li>Deployed dashboards via Power BI Report Server.</li>
+</ul>
+
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Power BI Developer</h3>
+<h4>ICEICO Technologies Pvt Ltd • Nov 2017 – Jan 2023</h4>
+
+<ul>
+<li>Developed MIS reports and automated dashboards.</li>
+<li>Wrote SQL queries for business reporting.</li>
+<li>Supported enterprise BI implementations.</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+</section>
 
 </div>
 
