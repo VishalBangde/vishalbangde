@@ -302,6 +302,7 @@ grid-template-columns:1fr
 }
 
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
 </head>
 
@@ -552,38 +553,51 @@ labels:[
 "SQL",
 "Excel",
 "Power Platform",
-"Data Modeling",
-"Microsoft Fabric"
+"Data Modeling"
 ],
 datasets:[{
-data:[35,18,15,10,8,7,7],
+data:[35,20,15,12,10,8],
 backgroundColor:[
 "#60a5fa",
 "#a855f7",
 "#22d3ee",
 "#34d399",
 "#fbbf24",
-"#38bdf8",
-"#f472b6"
+"#38bdf8"
 ],
 borderWidth:0,
-hoverOffset:10
+hoverOffset:12
 }]
 },
+plugins:[ChartDataLabels],
 options:{
 cutout:"65%",
 plugins:{
 legend:{
-position:"bottom",
+position:"right",
 labels:{
 color:"#cbd5e1",
-padding:15
+padding:18,
+boxWidth:18,
+font:{
+size:13
+}
 }
 },
 tooltip:{
 backgroundColor:"#111827",
 titleColor:"#fff",
 bodyColor:"#d1d5db"
+},
+datalabels:{
+color:"#ffffff",
+font:{
+weight:"bold",
+size:12
+},
+formatter:(value)=>{
+return value+"%";
+}
 }
 },
 animation:{
@@ -593,6 +607,7 @@ easing:"easeOutElastic"
 }
 }
 })
+
 
 
 </script>
