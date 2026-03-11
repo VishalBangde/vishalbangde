@@ -11,8 +11,6 @@
 
 <style>
 
-/* PAGE */
-
 body{
 margin:0;
 font-family:Segoe UI;
@@ -86,7 +84,8 @@ transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 10px 20px rgba(0,0,0,0.5);
 }
 
 .icon{
@@ -96,8 +95,30 @@ margin-bottom:10px;
 }
 
 .kpi{
-font-size:28px;
+font-size:30px;
 color:#facc15;
+}
+
+/* SLICERS */
+
+.slicers{
+margin-top:30px;
+}
+
+.slicer-btn{
+background:#1e293b;
+border:none;
+padding:8px 14px;
+margin-right:10px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.slicer-btn:hover{
+background:#facc15;
+color:black;
 }
 
 /* PROJECTS */
@@ -131,33 +152,12 @@ display:inline-block;
 border-radius:6px;
 }
 
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-transition:0.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.08);
-}
-
 /* TIMELINE */
 
 .timeline{
 margin-top:70px;
 position:relative;
 }
-
-/* LINE */
 
 .timeline::before{
 content:'';
@@ -169,26 +169,26 @@ height:4px;
 background:#facc15;
 }
 
-/* TIMELINE ITEMS */
-
 .timeline-items{
 display:flex;
 justify-content:space-between;
-position:relative;
 }
-
-/* NODE */
 
 .timeline-dot{
 width:18px;
 height:18px;
 background:#facc15;
 border-radius:50%;
-box-shadow:0 0 12px #facc15;
+box-shadow:0 0 15px #facc15;
 margin:auto;
+animation:pulse 2s infinite;
 }
 
-/* CARD */
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.3);}
+100%{transform:scale(1);}
+}
 
 .timeline-card{
 margin-top:30px;
@@ -201,7 +201,7 @@ transition:0.3s;
 }
 
 .timeline-card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 }
 
 .timeline-card h4{
@@ -232,7 +232,6 @@ width:20%;
 
 <a href="#">Dashboard</a>
 <a href="#">Projects</a>
-<a href="#">Gallery</a>
 <a href="#">Experience</a>
 
 </div>
@@ -248,19 +247,19 @@ width:20%;
 <div class="card">
 <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
 Experience
-<div class="kpi">7+ Years</div>
+<div class="kpi" id="exp">0</div>
 </div>
 
 <div class="card">
 <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
 Dashboards
-<div class="kpi">30+</div>
+<div class="kpi" id="dash">0</div>
 </div>
 
 <div class="card">
 <div class="icon"><i class="fa-solid fa-database"></i></div>
 Projects
-<div class="kpi">15+</div>
+<div class="kpi" id="proj">0</div>
 </div>
 
 <div class="card">
@@ -277,7 +276,7 @@ Primary Tool
 
 <h3>About Me</h3>
 
-Power BI Developer with 7+ years of experience building interactive dashboards and delivering data insights.
+Power BI Developer with 7+ years of experience building interactive dashboards, data models, and delivering business insights.
 
 </div>
 
@@ -310,30 +309,29 @@ Power BI Developer with 7+ years of experience building interactive dashboards a
 
 </div>
 
-<!-- PROJECTS -->
+<!-- SLICERS -->
 
-<h2 style="margin-top:40px">Projects</h2>
+<div class="slicers">
 
-<div class="projects">
+<h3>Project Explorer</h3>
 
-<div class="project">Sales Performance Dashboard</div>
-<div class="project">Finance Analytics Dashboard</div>
-<div class="project">Ticket Monitoring Dashboard</div>
-<div class="project">Customer Insights Dashboard</div>
-<div class="project">Operations KPI Dashboard</div>
-<div class="project">Marketing Analytics Dashboard</div>
+<button class="slicer-btn" onclick="filterProjects('all')">All</button>
+<button class="slicer-btn" onclick="filterProjects('sales')">Sales</button>
+<button class="slicer-btn" onclick="filterProjects('finance')">Finance</button>
+<button class="slicer-btn" onclick="filterProjects('support')">Support</button>
 
 </div>
 
-<!-- GALLERY -->
+<!-- PROJECTS -->
 
-<h2 style="margin-top:40px">Dashboard Gallery</h2>
+<div class="projects">
 
-<div class="gallery">
-
-<img src="dashboard1.png">
-<img src="dashboard2.png">
-<img src="dashboard3.png">
+<div class="project sales">Sales Performance Dashboard</div>
+<div class="project finance">Finance Analytics Dashboard</div>
+<div class="project support">Ticket Monitoring Dashboard</div>
+<div class="project sales">Customer Insights Dashboard</div>
+<div class="project finance">Operations KPI Dashboard</div>
+<div class="project support">Marketing Analytics Dashboard</div>
 
 </div>
 
@@ -408,7 +406,31 @@ Power BI Developer with 7+ years of experience building interactive dashboards a
 
 <script>
 
-const ctx=document.getElementById('chart');
+/* KPI COUNTERS */
+
+function counter(id,target){
+
+let count=0
+
+let interval=setInterval(function(){
+
+count++
+
+document.getElementById(id).innerText=count+"+"
+
+if(count>=target) clearInterval(interval)
+
+},40)
+
+}
+
+counter("exp",7)
+counter("dash",30)
+counter("proj",15)
+
+/* CHART */
+
+const ctx=document.getElementById('chart')
 
 new Chart(ctx,{
 type:'bar',
@@ -419,7 +441,24 @@ data:[10,8,6,5],
 backgroundColor:'#facc15'
 }]
 }
-});
+})
+
+/* PROJECT FILTER */
+
+function filterProjects(type){
+
+let projects=document.querySelectorAll('.project')
+
+projects.forEach(function(p){
+
+if(type==='all' || p.classList.contains(type))
+p.style.display='block'
+else
+p.style.display='none'
+
+})
+
+}
 
 </script>
 
