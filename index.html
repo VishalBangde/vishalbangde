@@ -447,7 +447,7 @@ grid-template-columns:1fr
 
 <div class="panel">
 
-<h3>Analytics Trend</h3>
+<h3><i class="fa-solid fa-chart-donut"></i> Career Progress</h3>
 
 <div class="chart-box">
 <canvas id="chart3"></canvas>
@@ -544,16 +544,56 @@ tension:.4
 })
 
 new Chart(chart3,{
-type:"line",
+type:"doughnut",
 data:{
-labels:["2020","2021","2022","2023","2024"],
+labels:[
+"Power BI",
+"DAX",
+"SQL",
+"Excel",
+"Power Platform",
+"Data Modeling",
+"Microsoft Fabric"
+],
 datasets:[{
-data:[20,40,55,70,90],
-borderColor:"#a855f7",
-tension:.4
+data:[35,18,15,10,8,7,7],
+backgroundColor:[
+"#60a5fa",
+"#a855f7",
+"#22d3ee",
+"#34d399",
+"#fbbf24",
+"#38bdf8",
+"#f472b6"
+],
+borderWidth:0,
+hoverOffset:10
 }]
+},
+options:{
+cutout:"65%",
+plugins:{
+legend:{
+position:"bottom",
+labels:{
+color:"#cbd5e1",
+padding:15
+}
+},
+tooltip:{
+backgroundColor:"#111827",
+titleColor:"#fff",
+bodyColor:"#d1d5db"
+}
+},
+animation:{
+animateRotate:true,
+duration:1800,
+easing:"easeOutElastic"
+}
 }
 })
+
 
 </script>
 
