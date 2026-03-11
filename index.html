@@ -59,15 +59,11 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
-/* CARD */
-
 .card{
 background:#1e293b;
 padding:20px;
 border-radius:10px;
 }
-
-/* KPI */
 
 .kpi{
 font-size:30px;
@@ -100,10 +96,61 @@ display:inline-block;
 border-radius:5px;
 }
 
+/* DASHBOARD GALLERY */
+
+.gallery{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:10px;
+}
+
+.gallery-item img{
+width:100%;
+display:block;
+transition:0.4s;
+}
+
+.gallery-item:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+transition:0.3s;
+}
+
+.gallery-item:hover .overlay{
+opacity:1;
+}
+
+.overlay span{
+background:#f2c811;
+color:black;
+padding:8px 15px;
+border-radius:6px;
+font-weight:bold;
+}
+
 /* EXPERIENCE LINE */
 
 #experience{
-margin-top:50px;
+margin-top:60px;
 }
 
 .exp-line{
@@ -125,7 +172,6 @@ background:#f2c811;
 }
 
 .exp-item{
-position:relative;
 text-align:center;
 }
 
@@ -170,8 +216,8 @@ color:#94a3b8;
 
 <a href="#">Dashboard</a>
 <a href="#">Projects</a>
+<a href="#">Gallery</a>
 <a href="#">Experience</a>
-<a href="#">Contact</a>
 
 </div>
 
@@ -213,8 +259,8 @@ Primary Tool
 
 <h3>About Me</h3>
 
-Power BI Developer with 7+ years of experience designing interactive dashboards,
-building optimized data models, and delivering data-driven insights for business teams.
+Power BI Developer with 7+ years of experience building interactive dashboards,
+creating optimized data models, and delivering business insights through analytics.
 
 </div>
 
@@ -250,7 +296,7 @@ building optimized data models, and delivering data-driven insights for business
 
 <!-- PROJECTS -->
 
-<h2 style="margin-top:30px">Projects</h2>
+<h2 style="margin-top:40px">Projects</h2>
 
 <div class="projects">
 
@@ -265,6 +311,35 @@ building optimized data models, and delivering data-driven insights for business
 <div class="project">Operations KPI Dashboard</div>
 
 <div class="project">Marketing Analytics Dashboard</div>
+
+</div>
+
+<!-- DASHBOARD GALLERY -->
+
+<h2 style="margin-top:40px">Dashboard Gallery</h2>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="dashboard1.png">
+<div class="overlay">
+<span>Sales Dashboard</span>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="dashboard2.png">
+<div class="overlay">
+<span>Finance Dashboard</span>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="dashboard3.png">
+<div class="overlay">
+<span>Ticket Dashboard</span>
+</div>
+</div>
 
 </div>
 
