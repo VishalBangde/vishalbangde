@@ -24,6 +24,24 @@ font-family:Segoe UI;
 background:#0b0f1a;
 color:white;
 animation:fadeIn 1.2s ease;
+overflow-x:hidden;
+}
+
+/* BACKGROUND ANIMATION */
+
+body:before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:linear-gradient(120deg,#60a5fa33,#22d3ee33,#a855f733);
+animation:bgMove 15s linear infinite;
+z-index:-1;
+}
+
+@keyframes bgMove{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
 }
 
 /* ANIMATION */
@@ -52,6 +70,7 @@ margin-bottom:40px;
 font-size:44px;
 margin:0;
 font-weight:600;
+letter-spacing:1px;
 }
 
 .header h3{
@@ -66,6 +85,12 @@ border-radius:30px;
 margin:6px;
 display:inline-block;
 font-size:13px;
+transition:.3s;
+}
+
+.tools span:hover{
+transform:translateY(-3px);
+box-shadow:0 0 10px #3b82f6;
 }
 
 /* KPI CARDS */
@@ -91,6 +116,8 @@ position:relative;
 
 }
 
+/* NEON BORDER */
+
 .card:before{
 
 content:"";
@@ -106,20 +133,36 @@ mask-composite:exclude;
 
 }
 
+/* CARD HOVER */
+
 .card:hover{
 
-transform:translateY(-6px);
+transform:translateY(-6px) scale(1.02);
 box-shadow:0 0 30px rgba(96,165,250,.4);
 
 }
 
+/* ICON ANIMATION */
+
 .card i{
 font-size:28px;
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
 }
 
 .card h2{
 margin:0;
 font-size:26px;
+transition:.3s;
+}
+
+.card:hover h2{
+color:#60a5fa;
 }
 
 .card p{
@@ -143,18 +186,43 @@ border-radius:14px;
 padding:20px;
 border:1px solid #273059;
 transition:all .3s;
+position:relative;
 
 }
 
+.panel:before{
+
+content:"";
+position:absolute;
+inset:0;
+border-radius:14px;
+padding:1px;
+background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
+opacity:0;
+transition:.3s;
+
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+mask-composite:exclude;
+
+}
+
+.panel:hover:before{
+opacity:1;
+}
+
 .panel:hover{
-
 transform:scale(1.02);
-
+box-shadow:0 0 25px rgba(59,130,246,.3);
 }
 
 .panel h3{
 margin-top:0;
+letter-spacing:.5px;
 }
+
+/* LIST */
 
 .list{
 list-style:none;
@@ -168,24 +236,26 @@ border-bottom:1px solid #273059;
 display:flex;
 align-items:center;
 gap:10px;
+transition:.3s;
 
 }
 
-/* CHART BOX */
+.list li:hover{
+color:#60a5fa;
+transform:translateX(6px);
+}
+
+/* CHART */
 
 .chart-box{
-
 height:220px;
-
 }
 
 /* TECH STACK */
 
 .tech{
-
 text-align:center;
 margin-top:40px;
-
 }
 
 .tech span{
@@ -198,6 +268,7 @@ margin:6px;
 border:1px solid #273059;
 
 transition:.3s;
+animation:float 5s infinite ease-in-out;
 
 }
 
@@ -206,6 +277,12 @@ transition:.3s;
 transform:translateY(-3px);
 box-shadow:0 0 10px #3b82f6;
 
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
 }
 
 /* RESPONSIVE */
@@ -232,11 +309,9 @@ grid-template-columns:1fr
 
 <div class="container">
 
-<!-- HEADER -->
-
 <div class="header">
 
-<h1>Vishal Bangde</h1>
+<h1><i class="fa-solid fa-chart-line"></i> Vishal Bangde</h1>
 
 <h3>Power BI Developer | Data Analyst</h3>
 
@@ -248,6 +323,7 @@ grid-template-columns:1fr
 <span><i class="fa-solid fa-file-excel"></i> Excel</span>
 <span><i class="fa-solid fa-layer-group"></i> Power Apps</span>
 <span><i class="fa-solid fa-bolt"></i> Power Automate</span>
+<span><i class="fa-solid fa-brain"></i> Analytics</span>
 
 </div>
 
@@ -297,7 +373,7 @@ grid-template-columns:1fr
 
 <div class="panel">
 
-<h3>Projects</h3>
+<h3><i class="fa-solid fa-diagram-project"></i> Projects</h3>
 
 <ul class="list">
 
@@ -312,7 +388,7 @@ grid-template-columns:1fr
 
 <div class="panel">
 
-<h3>Skills</h3>
+<h3><i class="fa-solid fa-screwdriver-wrench"></i> Skills</h3>
 
 <ul class="list">
 
@@ -320,8 +396,8 @@ grid-template-columns:1fr
 <li><i class="fa-solid fa-database"></i> DAX</li>
 <li><i class="fa-solid fa-code"></i> SQL Server</li>
 <li><i class="fa-solid fa-plug"></i> Power Platform</li>
-<li><i class="fa-solid fa-plug"></i> Microsoft Fabric</li>
-<li><i class="fa-solid fa-plug"></i> Data Modeling</li>
+<li><i class="fa-solid fa-cloud"></i> Microsoft Fabric</li>
+<li><i class="fa-solid fa-layer-group"></i> Data Modeling</li>
 
 </ul>
 
@@ -329,7 +405,7 @@ grid-template-columns:1fr
 
 <div class="panel">
 
-<h3>Experience</h3>
+<h3><i class="fa-solid fa-timeline"></i> Experience</h3>
 
 <ul class="list">
 
@@ -381,7 +457,7 @@ grid-template-columns:1fr
 
 </div>
 
-<!-- TECH STACK -->
+<!-- TECH -->
 
 <div class="tech">
 
