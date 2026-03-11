@@ -11,6 +11,8 @@
 
 <style>
 
+/* PAGE */
+
 body{
 margin:0;
 font-family:Segoe UI;
@@ -53,7 +55,7 @@ margin-left:240px;
 padding:30px;
 }
 
-/* GRID */
+/* KPI GRID */
 
 .grid{
 display:grid;
@@ -77,11 +79,15 @@ transform:translateY(-6px);
 box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
+/* ICON */
+
 .icon{
 font-size:22px;
 color:#f2c811;
 margin-bottom:10px;
 }
+
+/* KPI */
 
 .kpi{
 font-size:28px;
@@ -172,75 +178,84 @@ border-radius:6px;
 font-weight:bold;
 }
 
-/* EXPERIENCE TIMELINE */
+/* ZIGZAG EXPERIENCE */
 
-.timeline{
+.timeline-horizontal{
 position:relative;
-margin-top:60px;
+margin-top:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.timeline::before{
+/* LINE */
+
+.timeline-horizontal::before{
 content:'';
 position:absolute;
-left:50%;
-top:0;
-width:4px;
-height:100%;
+top:50%;
+left:0;
+width:100%;
+height:4px;
 background:#f2c811;
-transform:translateX(-50%);
 }
+
+/* ITEM */
 
 .timeline-item{
 position:relative;
-width:50%;
-padding:20px 40px;
-box-sizing:border-box;
+width:18%;
+text-align:center;
 }
 
-.timeline-item:nth-child(odd){
-left:0;
-text-align:right;
-}
-
-.timeline-item:nth-child(even){
-left:50%;
-}
+/* DOT */
 
 .timeline-dot{
-position:absolute;
-top:30px;
-right:-10px;
 width:18px;
 height:18px;
 background:#f2c811;
 border-radius:50%;
-box-shadow:0 0 10px #f2c811;
+margin:auto;
+box-shadow:0 0 12px #f2c811;
+position:relative;
+z-index:2;
 }
 
-.timeline-item:nth-child(even) .timeline-dot{
-left:-10px;
-}
+/* CARD */
 
 .timeline-card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
-padding:15px;
+padding:12px;
 border-radius:10px;
+margin-top:15px;
 transition:0.3s;
 }
 
 .timeline-card:hover{
-transform:scale(1.05);
+transform:translateY(-6px);
+box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* ZIGZAG */
+
+.timeline-item:nth-child(odd) .timeline-card{
+margin-top:40px;
+}
+
+.timeline-item:nth-child(even) .timeline-card{
+margin-top:-80px;
 }
 
 .timeline-card h4{
 margin:0;
+font-size:15px;
 }
 
 .timeline-card p{
-margin:5px 0 0;
+margin:4px 0 0;
+font-size:12px;
 color:#94a3b8;
-font-size:13px;
 }
 
 </style>
@@ -248,6 +263,8 @@ font-size:13px;
 </head>
 
 <body>
+
+<!-- SIDEBAR -->
 
 <div class="sidebar">
 
@@ -260,9 +277,13 @@ font-size:13px;
 
 </div>
 
+<!-- MAIN -->
+
 <div class="main">
 
 <h1>Vishal Bangde</h1>
+
+<!-- KPI -->
 
 <div class="grid">
 
@@ -292,14 +313,18 @@ Primary Tool
 
 </div>
 
+<!-- ABOUT -->
+
 <div class="card" style="margin-top:20px">
 
 <h3>About Me</h3>
 
 Power BI Developer with 7+ years of experience building interactive dashboards,
-designing data models, and delivering business insights through analytics.
+creating optimized data models, and delivering business insights through analytics.
 
 </div>
+
+<!-- TOOLS -->
 
 <div class="card" style="margin-top:20px">
 
@@ -319,6 +344,8 @@ designing data models, and delivering business insights through analytics.
 
 </div>
 
+<!-- CHART -->
+
 <div class="card" style="margin-top:20px">
 
 <h3>Analytics Domains</h3>
@@ -326,6 +353,8 @@ designing data models, and delivering business insights through analytics.
 <canvas id="chart"></canvas>
 
 </div>
+
+<!-- PROJECTS -->
 
 <h2 style="margin-top:40px">Projects</h2>
 
@@ -340,9 +369,34 @@ designing data models, and delivering business insights through analytics.
 
 </div>
 
-<h2 style="margin-top:40px">Professional Experience</h2>
+<!-- GALLERY -->
 
-<div class="timeline">
+<h2 style="margin-top:40px">Dashboard Gallery</h2>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="dashboard1.png">
+<div class="overlay"><span>Sales Dashboard</span></div>
+</div>
+
+<div class="gallery-item">
+<img src="dashboard2.png">
+<div class="overlay"><span>Finance Dashboard</span></div>
+</div>
+
+<div class="gallery-item">
+<img src="dashboard3.png">
+<div class="overlay"><span>Ticket Dashboard</span></div>
+</div>
+
+</div>
+
+<!-- EXPERIENCE -->
+
+<h2 style="margin-top:60px">Professional Experience</h2>
+
+<div class="timeline-horizontal">
 
 <div class="timeline-item">
 <div class="timeline-dot"></div>
