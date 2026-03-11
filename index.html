@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <title>Vishal Bangde</title>
 
@@ -13,8 +14,23 @@
 body{
 margin:0;
 font-family:Segoe UI;
-background:linear-gradient(135deg,#0f172a,#020617);
+background:#020617;
 color:white;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(#0ea5e9 1px, transparent 1px),
+linear-gradient(90deg,#0ea5e9 1px, transparent 1px);
+background-size:60px 60px;
+opacity:0.05;
+z-index:-1;
 }
 
 /* SIDEBAR */
@@ -28,7 +44,7 @@ padding:20px;
 }
 
 .sidebar h2{
-color:#f2c811;
+color:#facc15;
 }
 
 .sidebar a{
@@ -41,7 +57,7 @@ border-radius:6px;
 }
 
 .sidebar a:hover{
-background:#1f2937;
+background:#1e293b;
 }
 
 /* MAIN */
@@ -51,7 +67,7 @@ margin-left:240px;
 padding:30px;
 }
 
-/* GRID */
+/* KPI GRID */
 
 .grid{
 display:grid;
@@ -59,13 +75,11 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
-/* GLASS CARD */
-
 .card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
-border-radius:12px;
 padding:20px;
+border-radius:12px;
 transition:0.3s;
 }
 
@@ -74,14 +88,14 @@ transform:translateY(-6px);
 }
 
 .icon{
-color:#f2c811;
+color:#facc15;
 font-size:22px;
 margin-bottom:10px;
 }
 
 .kpi{
 font-size:28px;
-color:#f2c811;
+color:#facc15;
 }
 
 /* PROJECTS */
@@ -107,7 +121,7 @@ transform:scale(1.05);
 /* SKILLS */
 
 .skills span{
-background:#f2c811;
+background:#facc15;
 color:black;
 padding:6px 12px;
 margin:5px;
@@ -134,35 +148,61 @@ transition:0.4s;
 transform:scale(1.08);
 }
 
-/* ZIGZAG EXPERIENCE */
+/* EXPERIENCE CHART LINE */
 
-.zigzag-container{
+.exp-section{
 margin-top:80px;
+}
+
+.exp-chart{
+position:relative;
+height:200px;
+}
+
+.exp-line{
+position:absolute;
+top:100px;
+left:0;
+width:100%;
+height:4px;
+background:#facc15;
+transform:skewY(-10deg);
+}
+
+/* POINTS */
+
+.exp-points{
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:absolute;
+width:100%;
+top:80px;
+}
+
+.point{
+width:16px;
+height:16px;
+background:#facc15;
+border-radius:50%;
+box-shadow:0 0 12px #facc15;
 position:relative;
 }
 
-.zigzag-line{
-width:100%;
-height:120px;
-background:
-linear-gradient(135deg, transparent 45%, #f2c811 45%, #f2c811 55%, transparent 55%),
-linear-gradient(-135deg, transparent 45%, #f2c811 45%, #f2c811 55%, transparent 55%);
-background-size:200px 120px;
-}
+/* LABELS */
 
-.exp-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-margin-top:-80px;
-text-align:center;
+.labels{
+display:flex;
+justify-content:space-between;
+margin-top:120px;
 }
 
 .exp-card{
+width:150px;
+text-align:center;
 background:rgba(255,255,255,0.05);
-padding:12px;
+padding:10px;
 border-radius:10px;
-width:160px;
-margin:auto;
 transition:0.3s;
 }
 
@@ -177,8 +217,8 @@ font-size:14px;
 
 .exp-card p{
 margin:4px 0 0;
-color:#94a3b8;
 font-size:12px;
+color:#94a3b8;
 }
 
 </style>
@@ -238,7 +278,7 @@ Primary Tool
 
 <h3>About Me</h3>
 
-Power BI Developer with 7+ years of experience building interactive dashboards and delivering business insights.
+Power BI Developer with 7+ years of experience building interactive dashboards and delivering data insights.
 
 </div>
 
@@ -300,13 +340,27 @@ Power BI Developer with 7+ years of experience building interactive dashboards a
 
 <!-- EXPERIENCE -->
 
-<h2 style="margin-top:60px">Professional Experience</h2>
+<div class="exp-section">
 
-<div class="zigzag-container">
+<h2>Professional Experience</h2>
 
-<div class="zigzag-line"></div>
+<div class="exp-chart">
 
-<div class="exp-grid">
+<div class="exp-line"></div>
+
+<div class="exp-points">
+
+<div class="point"></div>
+<div class="point"></div>
+<div class="point"></div>
+<div class="point"></div>
+<div class="point"></div>
+
+</div>
+
+</div>
+
+<div class="labels">
 
 <div class="exp-card">
 <h4>ICEICO Technologies</h4>
@@ -349,7 +403,7 @@ data:{
 labels:['Sales','Finance','Operations','Support'],
 datasets:[{
 data:[10,8,6,5],
-backgroundColor:'#f2c811'
+backgroundColor:'#facc15'
 }]
 }
 });
