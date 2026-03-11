@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <title>Vishal Bangde</title>
 
@@ -31,9 +33,9 @@ color:#f2c811;
 
 .sidebar a{
 display:block;
-color:white;
 padding:10px;
 margin:6px 0;
+color:white;
 text-decoration:none;
 border-radius:6px;
 }
@@ -49,7 +51,7 @@ margin-left:240px;
 padding:30px;
 }
 
-/* GRID */
+/* KPI GRID */
 
 .grid{
 display:grid;
@@ -68,7 +70,7 @@ border-radius:10px;
 /* KPI */
 
 .kpi{
-font-size:32px;
+font-size:30px;
 color:#f2c811;
 }
 
@@ -98,104 +100,11 @@ display:inline-block;
 border-radius:5px;
 }
 
-  /* EXPERIENCE SECTION */
+/* EXPERIENCE LINE */
 
 #experience{
-margin-top:60px;
+margin-top:50px;
 }
-
-#experience h2{
-margin-bottom:30px;
-font-size:28px;
-}
-
-/* Timeline */
-
-.timeline{
-position:relative;
-margin-left:20px;
-}
-
-.timeline::before{
-content:'';
-position:absolute;
-left:20px;
-top:0;
-bottom:0;
-width:4px;
-background:#f2c811;
-}
-
-/* Timeline Item */
-
-.timeline-item{
-position:relative;
-margin-bottom:40px;
-padding-left:60px;
-}
-
-/* Timeline Dot */
-
-.timeline-item::before{
-content:'';
-position:absolute;
-left:10px;
-top:5px;
-width:20px;
-height:20px;
-background:#f2c811;
-border-radius:50%;
-}
-
-/* Content Card */
-
-.timeline-content{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
-transition:0.3s;
-}
-
-.timeline-content:hover{
-transform:translateY(-5px);
-background:#334155;
-}
-
-/* Titles */
-
-.timeline-content h3{
-margin:0;
-color:#f2c811;
-}
-
-.timeline-content h4{
-margin:5px 0 15px;
-font-size:14px;
-color:#94a3b8;
-}
-
-/* Bullet */
-
-.timeline-content ul{
-padding-left:18px;
-}
-
-.timeline-content li{
-margin-bottom:8px;
-}
-
-  /* EXPERIENCE LINE CHART STYLE */
-
-#experience{
-margin-top:60px;
-}
-
-#experience h2{
-margin-bottom:40px;
-}
-
-/* Horizontal timeline */
 
 .exp-line{
 display:flex;
@@ -205,8 +114,6 @@ position:relative;
 padding:20px 0;
 }
 
-/* Line */
-
 .exp-line::before{
 content:'';
 position:absolute;
@@ -215,15 +122,11 @@ left:0;
 width:100%;
 height:4px;
 background:#f2c811;
-z-index:0;
 }
-
-/* Node */
 
 .exp-item{
 position:relative;
 text-align:center;
-z-index:1;
 }
 
 .exp-dot{
@@ -235,19 +138,16 @@ margin:auto;
 margin-bottom:10px;
 }
 
-/* Card */
-
 .exp-card{
 background:#1e293b;
-padding:12px 15px;
-border-radius:8px;
-width:170px;
+padding:10px;
+border-radius:6px;
+width:160px;
 }
 
 .exp-card h4{
 margin:0;
 font-size:14px;
-color:white;
 }
 
 .exp-card p{
@@ -262,20 +162,26 @@ color:#94a3b8;
 
 <body>
 
+<!-- SIDEBAR -->
+
 <div class="sidebar">
 
 <h2>Power BI</h2>
 
 <a href="#">Dashboard</a>
 <a href="#">Projects</a>
-<a href="#">Skills</a>
+<a href="#">Experience</a>
 <a href="#">Contact</a>
 
 </div>
 
+<!-- MAIN -->
+
 <div class="main">
 
 <h1>Vishal Bangde</h1>
+
+<!-- KPI -->
 
 <div class="grid">
 
@@ -299,7 +205,71 @@ Primary Tool
 <div class="kpi">Power BI</div>
 </div>
 
+</div>
+
+<!-- ABOUT -->
+
+<div class="card" style="margin-top:20px">
+
+<h3>About Me</h3>
+
+Power BI Developer with 7+ years of experience designing interactive dashboards,
+building optimized data models, and delivering data-driven insights for business teams.
+
+</div>
+
+<!-- ANALYTICAL TOOLS -->
+
+<div class="card" style="margin-top:20px">
+
+<h3>Analytical Tools</h3>
+
+<div class="skills">
+
+<span>Power BI</span>
+<span>DAX</span>
+<span>SQL</span>
+<span>Power Query</span>
+<span>Excel</span>
+<span>Data Modeling</span>
+<span>Microsoft Fabric</span>
+
+</div>
+
+</div>
+
+<!-- CHART -->
+
+<div class="card" style="margin-top:20px">
+
+<h3>Analytics Domains</h3>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+<!-- PROJECTS -->
+
+<h2 style="margin-top:30px">Projects</h2>
+
+<div class="projects">
+
+<div class="project">Sales Performance Dashboard</div>
+
+<div class="project">Finance Analytics Dashboard</div>
+
+<div class="project">Ticket Monitoring Dashboard</div>
+
+<div class="project">Customer Insights Dashboard</div>
+
+<div class="project">Operations KPI Dashboard</div>
+
+<div class="project">Marketing Analytics Dashboard</div>
+
+</div>
+
 <!-- EXPERIENCE -->
+
 <section id="experience">
 
 <h2>Professional Experience</h2>
@@ -350,68 +320,6 @@ Primary Tool
 
 </section>
 
-<!-- ABOUT -->
-
-<div class="card" style="margin-top:20px">
-
-<h3>About Me</h3>
-
-Power BI Developer with 7+ years of experience in designing
-interactive dashboards, data modeling, DAX development,
-and business intelligence solutions that support decision making.
-
-</div>
-
-<!-- ANALYTICAL TOOLS -->
-
-<div class="card" style="margin-top:20px">
-
-<h3>Analytical Tools</h3>
-
-<div class="skills">
-
-<span>Power BI</span>
-<span>DAX</span>
-<span>SQL</span>
-<span>Power Query</span>
-<span>Excel</span>
-<span>Data Modeling</span>
-<span>Power Platform</span>
-
-</div>
-
-</div>
-
-<!-- CHART -->
-
-<div class="card" style="margin-top:20px">
-
-<h3>Analytics Domains</h3>
-
-<canvas id="chart"></canvas>
-
-</div>
-
-<!-- PROJECTS -->
-
-<h2 style="margin-top:30px">Projects</h2>
-
-<div class="projects">
-
-<div class="project">Sales Performance Dashboard</div>
-
-<div class="project">Finance Analytics Dashboard</div>
-
-<div class="project">Ticket Monitoring Dashboard</div>
-
-<div class="project">Customer Insights Dashboard</div>
-
-<div class="project">Operations KPI Dashboard</div>
-
-<div class="project">Marketing Analytics Dashboard</div>
-
-</div>
-
 </div>
 
 <script>
@@ -432,4 +340,5 @@ backgroundColor:'#f2c811'
 </script>
 
 </body>
+
 </html>
