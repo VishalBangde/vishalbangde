@@ -11,93 +11,97 @@
 body{
 margin:0;
 font-family:Segoe UI;
-background:#111827;
+background:#0f172a;
 color:white;
 }
 
-/* HEADER */
+/* SIDEBAR */
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#0f172a;
-padding:20px 40px;
-font-size:22px;
-}
-
-.header span{
-color:#f2c811;
-}
-
-/* DASHBOARD GRID */
-
-.dashboard{
-display:grid;
-grid-template-columns: repeat(4,1fr);
-gap:20px;
+.sidebar{
+position:fixed;
+width:220px;
+height:100%;
+background:#020617;
 padding:20px;
 }
 
-/* CARD */
+.sidebar h2{
+color:#f2c811;
+}
+
+.sidebar a{
+display:block;
+padding:10px;
+color:white;
+text-decoration:none;
+margin-top:10px;
+border-radius:5px;
+}
+
+.sidebar a:hover{
+background:#1f2937;
+}
+
+/* MAIN AREA */
+
+.main{
+margin-left:240px;
+padding:20px;
+}
+
+/* KPI CARDS */
+
+.kpis{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
 
 .card{
-background:#1f2937;
+background:#1e293b;
 padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.4);
+border-radius:8px;
 }
-
-.card-title{
-font-size:16px;
-margin-bottom:10px;
-color:#9ca3af;
-}
-
-/* KPI */
 
 .kpi{
-font-size:32px;
+font-size:30px;
 color:#f2c811;
-}
-
-/* PROJECT CARDS */
-
-.projects{
-grid-column: span 2;
-}
-
-.project{
-background:#111827;
-padding:10px;
-margin-top:10px;
-border-radius:6px;
-}
-
-/* SKILLS */
-
-.skills span{
-background:#f2c811;
-color:black;
-padding:6px 12px;
-border-radius:5px;
-margin:5px;
-display:inline-block;
-font-size:12px;
 }
 
 /* CHART */
 
 .chart{
-grid-column: span 2;
+margin-top:20px;
 }
 
-/* FOOTER */
+/* PROJECTS */
 
-.footer{
-text-align:center;
-padding:20px;
-background:#0f172a;
+.projects{
+margin-top:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.project{
+background:#1e293b;
+padding:15px;
+border-radius:8px;
+}
+
+/* SKILLS */
+
+.skills{
+margin-top:20px;
+}
+
+.skills span{
+background:#f2c811;
+color:black;
+padding:6px 12px;
+margin:5px;
+display:inline-block;
+border-radius:5px;
 }
 
 </style>
@@ -106,62 +110,84 @@ background:#0f172a;
 
 <body>
 
-<div class="header">
-<div>📊 <span>Vishal Bangde</span> | Power BI Developer</div>
-<div>Portfolio Dashboard</div>
+<div class="sidebar">
+
+<h2>Power BI</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Projects</a>
+<a href="#">Skills</a>
+<a href="#">Contact</a>
+
 </div>
 
-<div class="dashboard">
+<div class="main">
 
-<!-- KPI -->
+<h1>Vishal Bangde | Power BI Developer</h1>
+
+<div class="kpis">
 
 <div class="card">
-<div class="card-title">Experience</div>
-<div class="kpi">5.7 Years</div>
+Experience
+<div class="kpi">5.7Y</div>
 </div>
 
 <div class="card">
-<div class="card-title">Dashboards Built</div>
+Dashboards
 <div class="kpi">25+</div>
 </div>
 
 <div class="card">
-<div class="card-title">Projects</div>
+Projects
 <div class="kpi">12</div>
 </div>
 
 <div class="card">
-<div class="card-title">Tools</div>
-<div class="kpi">Power BI</div>
+Tools
+<div class="kpi">6</div>
 </div>
 
-<!-- CHART -->
+</div>
 
-<div class="card chart">
-<div class="card-title">Dashboard Usage</div>
+<div class="chart card">
+
+<h3>Dashboard Domains</h3>
+
 <canvas id="chart"></canvas>
-</div>
-
-<!-- PROJECTS -->
-
-<div class="card projects">
-
-<div class="card-title">Projects</div>
-
-<div class="project">Sales Dashboard – Power BI</div>
-<div class="project">Finance Performance Dashboard</div>
-<div class="project">Ticket Monitoring Analytics</div>
-<div class="project">Customer Insights Dashboard</div>
 
 </div>
 
-<!-- SKILLS -->
+<div class="projects">
 
-<div class="card">
+<div class="project">
+Sales Performance Dashboard
+</div>
 
-<div class="card-title">Skills</div>
+<div class="project">
+Finance Analytics Report
+</div>
+
+<div class="project">
+Ticket Monitoring Dashboard
+</div>
+
+<div class="project">
+Customer Insights
+</div>
+
+<div class="project">
+Operations Dashboard
+</div>
+
+<div class="project">
+Marketing Analytics
+</div>
+
+</div>
 
 <div class="skills">
+
+<h3>Skills</h3>
 
 <span>Power BI</span>
 <span>DAX</span>
@@ -174,24 +200,22 @@ background:#0f172a;
 
 </div>
 
-</div>
-
-<div class="footer">
-📧 vishal@email.com | 🔗 LinkedIn
-</div>
-
 <script>
 
 const ctx=document.getElementById('chart');
 
 new Chart(ctx,{
-type:'bar',
+type:'doughnut',
 data:{
 labels:['Sales','Finance','Operations','Support'],
 datasets:[{
-label:'Dashboard Projects',
-data:[8,6,5,4],
-backgroundColor:'#f2c811'
+data:[40,25,20,15],
+backgroundColor:[
+'#f2c811',
+'#3b82f6',
+'#22c55e',
+'#ef4444'
+]
 }]
 }
 });
