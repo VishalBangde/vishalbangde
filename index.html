@@ -15,11 +15,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <style>
 
-/* GLOBAL */
-
 *{
 box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
@@ -30,24 +27,21 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ANIMATED BACKGROUND */
 
 body:before{
 content:"";
 position:fixed;
 width:200%;
 height:200%;
-background:
-radial-gradient(circle at 20% 20%,#60a5fa22,transparent),
-radial-gradient(circle at 80% 30%,#22d3ee22,transparent),
-radial-gradient(circle at 40% 80%,#a855f722,transparent);
+background:linear-gradient(120deg,#60a5fa33,#22d3ee33,#a855f733);
 animation:bgMove 15s linear infinite;
 z-index:-1;
 }
 
 @keyframes bgMove{
 0%{transform:translateX(0)}
-100%{transform:translateX(-40%)}
+100%{transform:translateX(-50%)}
 }
 
 /* CONTAINER */
@@ -101,7 +95,7 @@ height:90px;
 border-radius:50%;
 padding:4px;
 background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
-animation:glowRotate 6s linear infinite;
+animation:profileGlow 6s linear infinite;
 }
 
 .profile-img img{
@@ -112,7 +106,7 @@ object-fit:cover;
 border:3px solid #0b0f1a;
 }
 
-@keyframes glowRotate{
+@keyframes profileGlow{
 0%{box-shadow:0 0 10px #60a5fa}
 50%{box-shadow:0 0 20px #a855f7}
 100%{box-shadow:0 0 10px #22d3ee}
@@ -133,8 +127,8 @@ transition:.3s;
 
 .tools span:hover{
 transform:translateY(-4px);
-box-shadow:0 0 15px #3b82f6;
-background:#1b2137;
+box-shadow:0 0 12px #3b82f6;
+background:#1a2135;
 }
 
 .tools a{
@@ -142,7 +136,7 @@ text-decoration:none;
 color:white;
 }
 
-/* KPI */
+/* KPI CARDS */
 
 .kpi-grid{
 display:grid;
@@ -159,12 +153,11 @@ align-items:center;
 gap:15px;
 border:1px solid #273059;
 transition:.3s;
-position:relative;
 }
 
 .card:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 0 25px rgba(96,165,250,.4);
+transform:translateY(-6px) scale(1.02);
+box-shadow:0 0 25px rgba(96,165,250,.35);
 }
 
 .card i{
@@ -206,8 +199,8 @@ transition:.3s;
 }
 
 .panel:hover{
-transform:scale(1.03);
-box-shadow:0 0 25px rgba(59,130,246,.3);
+transform:scale(1.02);
+box-shadow:0 0 20px rgba(59,130,246,.3);
 }
 
 .panel h3{
@@ -244,35 +237,6 @@ align-items:center;
 justify-content:center;
 }
 
-/* TECH STACK */
-
-.tech{
-text-align:center;
-margin-top:40px;
-}
-
-.tech span{
-display:inline-block;
-background:#141a2b;
-padding:10px 18px;
-border-radius:30px;
-margin:6px;
-border:1px solid #273059;
-transition:.3s;
-animation:float 6s infinite ease-in-out;
-}
-
-.tech span:hover{
-transform:translateY(-4px);
-box-shadow:0 0 12px #3b82f6;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-8px)}
-100%{transform:translateY(0)}
-}
-
 /* CAREER */
 
 .career-container{
@@ -301,6 +265,35 @@ height:16px;
 border-radius:4px;
 }
 
+/* TECH STACK */
+
+.tech{
+text-align:center;
+margin-top:40px;
+}
+
+.tech span{
+display:inline-block;
+background:#141a2b;
+padding:10px 18px;
+border-radius:30px;
+margin:6px;
+border:1px solid #273059;
+transition:.3s;
+animation:float 5s infinite ease-in-out;
+}
+
+.tech span:hover{
+transform:translateY(-4px);
+box-shadow:0 0 12px #3b82f6;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
 /* RESPONSIVE */
 
 @media(max-width:1100px){
@@ -323,8 +316,6 @@ grid-template-columns:1fr
 <body>
 
 <div class="container">
-
-<!-- HEADER -->
 
 <div class="header">
 
@@ -400,69 +391,3 @@ grid-template-columns:1fr
 </div>
 
 </div>
-
-<!-- PANELS -->
-
-<div class="grid">
-
-<div class="panel">
-
-<h3><i class="fa-solid fa-diagram-project"></i> Projects</h3>
-
-<ul class="list">
-
-<li><i class="fa-solid fa-chart-line"></i> Sales Dashboard</li>
-<li><i class="fa-solid fa-coins"></i> Finance Dashboard</li>
-<li><i class="fa-solid fa-ticket"></i> SLA Monitoring</li>
-<li><i class="fa-solid fa-cloud"></i> Power Platform Apps</li>
-<li><i class="fa-solid fa-users"></i> HR Analysis Dashboard</li>
-<li><i class="fa-solid fa-server"></i> Data Center Dashboard</li>
-<li><i class="fa-solid fa-chart-column"></i> Stock Market Analysis</li>
-<li><i class="fa-solid fa-box"></i> Inventory Dashboard</li>
-<li><i class="fa-solid fa-clock"></i> Product Ageing</li>
-
-</ul>
-
-</div>
-
-<div class="panel">
-
-<h3><i class="fa-solid fa-screwdriver-wrench"></i> Skills</h3>
-
-<ul class="list">
-
-<li><i class="fa-solid fa-chart-pie"></i> Power BI</li>
-<li><i class="fa-solid fa-database"></i> DAX</li>
-<li><i class="fa-solid fa-code"></i> SQL Server</li>
-<li><i class="fa-solid fa-plug"></i> Power Platform</li>
-<li><i class="fa-solid fa-cloud"></i> Microsoft Fabric</li>
-<li><i class="fa-solid fa-layer-group"></i> Data Modeling</li>
-<li><i class="fa-solid fa-file-excel"></i> Excel</li>
-<li><i class="fa-solid fa-gears"></i> ETL</li>
-
-</ul>
-
-</div>
-
-<div class="panel">
-
-<h3><i class="fa-solid fa-timeline"></i> Experience</h3>
-
-<ul class="list">
-
-<li>Oct 2025-Present — Sr. Consultant - Incresol</li>
-<li>Mar 2025-Jun 2025 — Power BI Developer - Camsdata</li>
-<li>Feb 2024-Nov 2024 — Sr Power BI Dev - Neoquant</li>
-<li>Mar 2023-Jan 2024 — Power BI Dev - Codify</li>
-<li>Nov 2017-Jan 2023 — Power BI Dev - ICEICO</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
-</html>
