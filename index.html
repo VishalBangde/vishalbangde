@@ -425,7 +425,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-briefcase" style="color:#fbbf24"></i>
 <div>
-<h2 class="counter" data-target="8">0</h2>
+<h2 class="counter" data-target="8" data-plus="true">0</h2>
 <p>Years Experience</p>
 </div>
 </div>
@@ -441,7 +441,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-circle-check" style="color:#22c55e"></i>
 <div>
-<h2 class="counter" data-target="20">0</h2>
+<h2 class="counter" data-target="20" data-plus="true">0</h2>
 <p>Executive level Reports</p>
 </div>
 </div>
@@ -449,7 +449,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-bullseye" style="color:#38bdf8"></i>
 <div>
-<h2 class="counter" data-target="15">0</h2>
+<h2 class="counter" data-target="15" data-plus="true">0</h2>
 <p>Technologies Mastered</p>
 </div>
 </div>
@@ -781,40 +781,37 @@ duration:1500
 }
 }
 })
-const counters = document.querySelectorAll(".counter");
+const counters = document.querySelectorAll('.counter');
 
 counters.forEach(counter => {
 
-const updateCount = () => {
+let target = parseInt(counter.getAttribute('data-target'));
+let plus = counter.getAttribute('data-plus');
+let count = 0;
 
-const target = +counter.getAttribute("data-target");
-const count = +counter.innerText;
+let step = Math.ceil(target / 60);
 
-const speed = 50;
-const increment = Math.ceil(target / speed);
+let interval = setInterval(() => {
 
-if(count < target){
+count += step;
 
-counter.innerText = count + increment;
+if(count >= target){
+count = target;
+clearInterval(interval);
 
-setTimeout(updateCount,30);
-
-}else{
-
-if(counter.dataset.plus){
+if(plus){
 counter.innerText = target + "+";
 }else{
 counter.innerText = target;
 }
 
+}else{
+counter.innerText = count;
 }
 
-};
-
-updateCount();
+},30);
 
 });
-
 
 
 </script>
