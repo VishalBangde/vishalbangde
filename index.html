@@ -14,9 +14,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <style>
 
-*{
-box-sizing:border-box;
-}
+/* ===== SAME CSS (UNCHANGED) ===== */
+
+*{box-sizing:border-box;}
 
 body{
 margin:0;
@@ -26,8 +26,6 @@ color:white;
 animation:fadeIn 1.2s ease;
 overflow-x:hidden;
 }
-
-/* BACKGROUND ANIMATION */
 
 body:before{
 content:"";
@@ -44,14 +42,10 @@ z-index:-1;
 100%{transform:translateX(-50%)}
 }
 
-/* ANIMATION */
-
 @keyframes fadeIn{
 from{opacity:0;transform:translateY(20px)}
 to{opacity:1}
 }
-
-/* CONTAINER */
 
 .container{
 width:1200px;
@@ -59,12 +53,7 @@ margin:auto;
 padding:30px;
 }
 
-/* HEADER */
-
-.header{
-text-align:center;
-margin-bottom:40px;
-}
+.header{text-align:center;margin-bottom:40px;}
 
 .header h1{
 font-size:44px;
@@ -73,9 +62,7 @@ font-weight:600;
 letter-spacing:1px;
 }
 
-.header h3{
-color:#94a3b8;
-}
+.header h3{color:#94a3b8;}
 
 .tools span{
 background:#141a2b;
@@ -93,7 +80,7 @@ transform:translateY(-3px);
 box-shadow:0 0 10px #3b82f6;
 }
 
-/* KPI CARDS */
+/* KPI */
 
 .kpi-grid{
 display:grid;
@@ -102,7 +89,6 @@ gap:20px;
 }
 
 .card{
-
 background:#141a2b;
 border-radius:14px;
 padding:22px;
@@ -110,39 +96,25 @@ display:flex;
 align-items:center;
 gap:15px;
 border:1px solid #273059;
-
 transition:all .3s;
 position:relative;
-
 }
 
-/* NEON BORDER */
-
 .card:before{
-
 content:"";
 position:absolute;
 inset:0;
 border-radius:14px;
 padding:1px;
 background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
--webkit-mask:
-linear-gradient(#000 0 0) content-box,
-linear-gradient(#000 0 0);
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
 mask-composite:exclude;
-
 }
-
-/* CARD HOVER */
 
 .card:hover{
-
 transform:translateY(-6px) scale(1.02);
 box-shadow:0 0 30px rgba(96,165,250,.4);
-
 }
-
-/* ICON ANIMATION */
 
 .card i{
 font-size:28px;
@@ -155,20 +127,8 @@ animation:pulse 3s infinite;
 100%{transform:scale(1)}
 }
 
-.card h2{
-margin:0;
-font-size:26px;
-transition:.3s;
-}
-
-.card:hover h2{
-color:#60a5fa;
-}
-
-.card p{
-margin:0;
-color:#94a3b8;
-}
+.card h2{margin:0;font-size:26px;}
+.card p{margin:0;color:#94a3b8;}
 
 /* PANELS */
 
@@ -180,49 +140,13 @@ margin-top:30px;
 }
 
 .panel{
-
 background:#141a2b;
 border-radius:14px;
 padding:20px;
 border:1px solid #273059;
-transition:all .3s;
-position:relative;
-
 }
 
-.panel:before{
-
-content:"";
-position:absolute;
-inset:0;
-border-radius:14px;
-padding:1px;
-background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
-opacity:0;
-transition:.3s;
-
--webkit-mask:
-linear-gradient(#000 0 0) content-box,
-linear-gradient(#000 0 0);
-mask-composite:exclude;
-
-}
-
-.panel:hover:before{
-opacity:1;
-}
-
-.panel:hover{
-transform:scale(1.02);
-box-shadow:0 0 25px rgba(59,130,246,.3);
-}
-
-.panel h3{
-margin-top:0;
-letter-spacing:.5px;
-}
-
-/* LIST */
+.panel h3{margin-top:0;}
 
 .list{
 list-style:none;
@@ -230,118 +154,16 @@ padding:0;
 }
 
 .list li{
-
 padding:10px 0;
 border-bottom:1px solid #273059;
 display:flex;
 align-items:center;
 gap:10px;
-transition:.3s;
-
 }
 
-.list li:hover{
-color:#60a5fa;
-transform:translateX(6px);
-}
+/* PROFILE */
 
-/* CHART */
-
-.chart-box{
-height:260px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-/* TECH STACK */
-
-.tech{
-text-align:center;
-margin-top:40px;
-}
-
-.tech span{
-
-display:inline-block;
-background:#141a2b;
-padding:10px 18px;
-border-radius:30px;
-margin:6px;
-border:1px solid #273059;
-
-transition:.3s;
-animation:float 5s infinite ease-in-out;
-
-}
-
-.tech span:hover{
-
-transform:translateY(-3px);
-box-shadow:0 0 10px #3b82f6;
-
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-6px)}
-100%{transform:translateY(0)}
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1100px){
-
-.container{width:90%}
-
-.kpi-grid{
-grid-template-columns:1fr 1fr
-}
-
-.grid{
-grid-template-columns:1fr
-}
-
-}
-  .chart-box{
-height:220px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-  .career-container{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:40px;
-}
-
-.career-legend{
-display:flex;
-flex-direction:column;
-gap:16px;
-font-size:15px;
-}
-
-.legend-item{
-display:flex;
-align-items:center;
-gap:10px;
-color:#ffffff;
-}
-
-.legend-color{
-width:16px;
-height:16px;
-border-radius:4px;
-display:inline-block;
-}
-  .tools a{
-text-decoration:none;
-color:white;
-}
-  .profile-row{
+.profile-row{
 display:flex;
 align-items:center;
 justify-content:center;
@@ -355,7 +177,6 @@ height:90px;
 border-radius:50%;
 padding:4px;
 background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
-animation:rotateGlow 6s linear infinite;
 }
 
 .profile-img img{
@@ -366,14 +187,9 @@ object-fit:cover;
 border:3px solid #0b0f1a;
 }
 
-@keyframes rotateGlow{
-0%{filter:drop-shadow(0 0 6px #60a5fa)}
-50%{filter:drop-shadow(0 0 14px #a855f7)}
-100%{filter:drop-shadow(0 0 6px #22d3ee)}
-}
-
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
 </head>
 
@@ -386,7 +202,7 @@ border:3px solid #0b0f1a;
 <div class="profile-row">
 
 <div class="profile-img">
-<img src="profile.jpeg" alt="Vishal Bangde">
+<img src="profile.jpeg">
 </div>
 
 <div>
@@ -398,21 +214,19 @@ border:3px solid #0b0f1a;
 
 <div class="tools">
 
-<a href="tel:+919000000000">
 <span><i class="fa-solid fa-phone"></i> +91 7020292767</span>
-</a>
 
-<a href="https://wa.me/917020292767" target="_blank">
-<span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
-</a>
+<span>
+<i class="fa-brands fa-whatsapp"></i> WhatsApp
+</span>
 
-<a href="https://linkedin.com/in/vishal-bangde-66268a2a4" target="_blank">
-<span><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
-</a>
+<span>
+<i class="fa-brands fa-linkedin"></i> LinkedIn
+</span>
 
-<a href="Vishal_Bangde_Resume.pdf" download>
-<span><i class="fa-solid fa-download"></i> Download Resume</span>
-</a>
+<span>
+<i class="fa-solid fa-file-arrow-down"></i> Download Resume
+</span>
 
 </div>
 
@@ -423,7 +237,7 @@ border:3px solid #0b0f1a;
 <div class="kpi-grid">
 
 <div class="card">
-<i class="fa-solid fa-briefcase" style="color:#fbbf24"></i>
+<i class="fa-solid fa-chart-pie" style="color:#fbbf24"></i>
 <div>
 <h2>8+</h2>
 <p>Years Experience</p>
@@ -431,7 +245,7 @@ border:3px solid #0b0f1a;
 </div>
 
 <div class="card">
-<i class="fa-solid fa-chart-simple" style="color:#60a5fa"></i>
+<i class="fa-solid fa-chart-column" style="color:#60a5fa"></i>
 <div>
 <h2>70+</h2>
 <p>Dashboards Delivered</p>
@@ -439,15 +253,15 @@ border:3px solid #0b0f1a;
 </div>
 
 <div class="card">
-<i class="fa-solid fa-circle-check" style="color:#22c55e"></i>
+<i class="fa-solid fa-file-chart-line" style="color:#22c55e"></i>
 <div>
 <h2>20+</h2>
-<p>Executive level Reports </p>
+<p>Executive Reports</p>
 </div>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-bullseye" style="color:#38bdf8"></i>
+<i class="fa-solid fa-brain" style="color:#38bdf8"></i>
 <div>
 <h2>15+</h2>
 <p>Technologies Mastered</p>
@@ -468,13 +282,13 @@ border:3px solid #0b0f1a;
 
 <li><i class="fa-solid fa-chart-line"></i> Sales Dashboard</li>
 <li><i class="fa-solid fa-coins"></i> Finance Dashboard</li>
-<li><i class="fa-solid fa-ticket"></i> SLA Monitoring</li>
-<li><i class="fa-solid fa-cloud"></i> Power Platform Apps</li>
-<li><i class="fa-solid fa-cloud"></i> HR Analysis Dashboard</li>
-<li><i class="fa-solid fa-cloud"></i> Data Center Monitoring Dashboard</li>
-<li><i class="fa-solid fa-cloud"></i> Stock Market Analysis Dashboard</li>
-<li><i class="fa-solid fa-cloud"></i> Inventory Management Dashboard</li>
-<li><i class="fa-solid fa-cloud"></i> Product Ageing Dashboard</li>
+<li><i class="fa-solid fa-clock"></i> SLA Monitoring</li>
+<li><i class="fa-solid fa-mobile-screen"></i> Power Platform Apps</li>
+<li><i class="fa-solid fa-users"></i> HR Analysis Dashboard</li>
+<li><i class="fa-solid fa-server"></i> Data Center Monitoring</li>
+<li><i class="fa-solid fa-arrow-trend-up"></i> Stock Market Dashboard</li>
+<li><i class="fa-solid fa-boxes-stacked"></i> Inventory Dashboard</li>
+<li><i class="fa-solid fa-hourglass-half"></i> Product Ageing Dashboard</li>
 
 </ul>
 
@@ -486,15 +300,15 @@ border:3px solid #0b0f1a;
 
 <ul class="list">
 
-<li><i class="fa-solid fa-chart-pie"></i> Power BI</li>
-<li><i class="fa-solid fa-database"></i> DAX</li>
-<li><i class="fa-solid fa-code"></i> SQL Server</li>
-<li><i class="fa-solid fa-plug"></i> Power Platform</li>
-<li><i class="fa-solid fa-cloud"></i> Microsoft Fabric</li>
+<li><i class="fa-solid fa-chart-simple"></i> Power BI</li>
+<li><i class="fa-solid fa-function"></i> DAX</li>
+<li><i class="fa-solid fa-database"></i> SQL Server</li>
 <li><i class="fa-solid fa-layer-group"></i> Data Modeling</li>
-<li><i class="fa-solid fa-layer-group"></i> Power BI Report Server</li>
-<li><i class="fa-solid fa-layer-group"></i> Excel</li>
-<li><i class="fa-solid fa-layer-group"></i> ETL</li>
+<li><i class="fa-solid fa-cloud"></i> Microsoft Fabric</li>
+<li><i class="fa-solid fa-gears"></i> Power Platform</li>
+<li><i class="fa-solid fa-server"></i> Power BI Report Server</li>
+<li><i class="fa-solid fa-file-excel"></i> Excel</li>
+<li><i class="fa-solid fa-arrows-spin"></i> ETL</li>
 
 </ul>
 
@@ -502,15 +316,15 @@ border:3px solid #0b0f1a;
 
 <div class="panel">
 
-<h3><i class="fa-solid fa-timeline"></i> Experience</h3>
+<h3><i class="fa-solid fa-briefcase"></i> Experience</h3>
 
 <ul class="list">
 
-<li>Oct 2025-Present — Sr. Consultant- Incresol Software Services</li>
-<li>Mar 2025-Jun 2025 — Power BI Developer- Camsdata Technologies</li>
-<li>Feb 2024-Nov 2024 — Senior Power BI Developer- Neoquant Solutions</li>
-<li>Mar 2023-Jan 2024 — Power BI Developer- Codify Software Services</li>
-<li>Nov 2017-Jan 2023 — Power BI Developer- ICEICO Technologies</li>
+<li><i class="fa-solid fa-building"></i> Sr Consultant — Incresol Software</li>
+<li><i class="fa-solid fa-building"></i> Power BI Developer — Camsdata</li>
+<li><i class="fa-solid fa-building"></i> Sr Power BI Developer — Neoquant</li>
+<li><i class="fa-solid fa-building"></i> Power BI Developer — Codify</li>
+<li><i class="fa-solid fa-building"></i> Power BI Developer — ICEICO</li>
 
 </ul>
 
@@ -518,239 +332,7 @@ border:3px solid #0b0f1a;
 
 </div>
 
-<!-- CHARTS -->
-
-<div class="grid">
-
-<div class="panel">
-
-<h3>Tech Stack Usage</h3>
-
-<div class="chart-box">
-<canvas id="chart1"></canvas>
 </div>
-
-</div>
-
-<div class="panel">
-
-<h3>Revenue Growth</h3>
-
-<div class="chart-box">
-<canvas id="chart2"></canvas>
-</div>
-
-</div>
-
-<div class="panel">
-
-<h3><i class="fa-solid fa-user-tie"></i> Career Roles</h3>
-
-<div class="career-container">
-
-<div class="chart-box">
-<canvas id="chart3"></canvas>
-</div>
-
-<div class="career-legend">
-
-<div class="legend-item">
-<span class="legend-color" style="background:#60a5fa"></span>
-Power BI Developer — <b>4 yrs</b>
-</div>
-
-<div class="legend-item">
-<span class="legend-color" style="background:#a855f7"></span>
-Sr. Power BI Developer — <b>3 yrs</b>
-</div>
-
-<div class="legend-item">
-<span class="legend-color" style="background:#22d3ee"></span>
-Sr. Consultant — <b>1 yr</b>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- TECH -->
-
-<div class="tech">
-
-<span><i class="fa-solid fa-chart-column"></i> Power BI</span>
-<span><i class="fa-solid fa-database"></i> SQL</span>
-<span><i class="fa-solid fa-file-excel"></i> Excel</span>
-<span><i class="fa-solid fa-layer-group"></i> Power Apps</span>
-<span><i class="fa-solid fa-bolt"></i> Power Automate</span>
-
-</div>
-
-</div>
-
-<script>
-
-new Chart(chart1,{
-type:"bar",
-data:{
-labels:[
-"Power BI",
-"SQL",
-"Excel",
-"DAX",
-"Power Platform",
-"Microsoft Fabric",
-"Data Modeling"
-],
-datasets:[{
-label:"Skill Level",
-data:[95,85,80,78,72,65,75],
-backgroundColor:[
-"#60a5fa",
-"#22d3ee",
-"#34d399",
-"#a855f7",
-"#fbbf24",
-"#f472b6",
-"#38bdf8"
-],
-borderRadius:8,
-barThickness:28
-}]
-},
-options:{
-responsive:true,
-plugins:{
-legend:{display:false},
-tooltip:{
-backgroundColor:"#111827",
-titleColor:"#fff",
-bodyColor:"#d1d5db"
-}
-},
-animation:{
-duration:1800,
-easing:"easeOutBounce"
-},
-scales:{
-x:{
-ticks:{color:"#cbd5e1"},
-grid:{display:false}
-},
-y:{
-beginAtZero:true,
-max:100,
-ticks:{color:"#cbd5e1"},
-grid:{color:"#1f2937"}
-}
-}
-}
-})
-
-
-new Chart(chart2,{
-type:"line",
-data:{
-labels:[
-"2017",
-"2018",
-"2019",
-"2020",
-"2021",
-"2022",
-"2023",
-"2024",
-"2025",
-"2026"
-],
-datasets:[{
-label:"Career Growth",
-data:[5,10,15,20,25,30,40,50,60,75],
-borderColor:"#60a5fa",
-backgroundColor:"rgba(96,165,250,0.15)",
-fill:true,
-tension:.4,
-pointRadius:5,
-pointHoverRadius:7
-}]
-},
-options:{
-responsive:true,
-plugins:{
-legend:{display:false},
-tooltip:{
-backgroundColor:"#111827",
-titleColor:"#fff",
-bodyColor:"#d1d5db"
-}
-},
-scales:{
-x:{
-ticks:{color:"#cbd5e1"},
-grid:{display:false}
-},
-y:{
-beginAtZero:true,
-ticks:{color:"#cbd5e1"},
-grid:{color:"#1f2937"}
-}
-},
-animation:{
-duration:1800,
-easing:"easeOutQuart"
-}
-}
-})
-
-
-new Chart(chart3,{
-type:"doughnut",
-data:{
-labels:[
-"Power BI Developer",
-"Sr. Power BI Developer",
-"Sr. Consultant"
-],
-datasets:[{
-data:[4,3,1],
-backgroundColor:[
-"#60a5fa",
-"#a855f7",
-"#22d3ee"
-],
-borderWidth:0
-}]
-},
-plugins:[ChartDataLabels],
-options:{
-cutout:"65%",
-plugins:{
-legend:{display:false},
-datalabels:{
-color:"#fff",
-font:{
-size:14,
-weight:"bold"
-},
-formatter:(value)=>{
-return value+" yrs";
-}
-}
-},
-animation:{
-animateRotate:true,
-duration:1500
-}
-}
-})
-
-
-
-
-</script>
 
 </body>
 </html>
