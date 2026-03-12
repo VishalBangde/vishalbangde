@@ -433,7 +433,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-chart-simple" style="color:#60a5fa"></i>
 <div>
-<h2 class="counter" data-target="70">0</h2>
+<h2 class="counter" data-target="70" data-plus="true">0</h2>
 <p>Dashboards Delivered</p>
 </div>
 </div>
@@ -781,8 +781,7 @@ duration:1500
 }
 }
 })
-
-  const counters = document.querySelectorAll(".counter");
+const counters = document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
 
@@ -791,19 +790,22 @@ const updateCount = () => {
 const target = +counter.getAttribute("data-target");
 const count = +counter.innerText;
 
-const speed = 40;
-
-const increment = target / speed;
+const speed = 50;
+const increment = Math.ceil(target / speed);
 
 if(count < target){
 
-counter.innerText = Math.ceil(count + increment);
+counter.innerText = count + increment;
 
 setTimeout(updateCount,30);
 
 }else{
 
+if(counter.dataset.plus){
 counter.innerText = target + "+";
+}else{
+counter.innerText = target;
+}
 
 }
 
@@ -812,7 +814,6 @@ counter.innerText = target + "+";
 updateCount();
 
 });
-
 
 
 
