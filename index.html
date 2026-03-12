@@ -425,7 +425,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-briefcase" style="color:#fbbf24"></i>
 <div>
-<h2>8+</h2>
+<h2 class="counter" data-target="8">0</h2>
 <p>Years Experience</p>
 </div>
 </div>
@@ -433,7 +433,7 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-chart-simple" style="color:#60a5fa"></i>
 <div>
-<h2>70+</h2>
+<h2 class="counter" data-target="70">0</h2>
 <p>Dashboards Delivered</p>
 </div>
 </div>
@@ -441,15 +441,15 @@ border:3px solid #0b0f1a;
 <div class="card">
 <i class="fa-solid fa-circle-check" style="color:#22c55e"></i>
 <div>
-<h2>20+</h2>
-<p>Executive level Reports </p>
+<h2 class="counter" data-target="20">0</h2>
+<p>Executive level Reports</p>
 </div>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-bullseye" style="color:#38bdf8"></i>
 <div>
-<h2>15+</h2>
+<h2 class="counter" data-target="15">0</h2>
 <p>Technologies Mastered</p>
 </div>
 </div>
@@ -781,6 +781,37 @@ duration:1500
 }
 }
 })
+
+  const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+const updateCount = () => {
+
+const target = +counter.getAttribute("data-target");
+const count = +counter.innerText;
+
+const speed = 40;
+
+const increment = target / speed;
+
+if(count < target){
+
+counter.innerText = Math.ceil(count + increment);
+
+setTimeout(updateCount,30);
+
+}else{
+
+counter.innerText = target + "+";
+
+}
+
+};
+
+updateCount();
+
+});
 
 
 
