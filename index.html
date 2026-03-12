@@ -373,7 +373,7 @@ border:3px solid #0b0f1a;
 }
 
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"><>
 
 </head>
 
@@ -785,19 +785,22 @@ const counters = document.querySelectorAll('.counter');
 
 counters.forEach(counter => {
 
-let target = parseInt(counter.getAttribute('data-target'));
-let plus = counter.getAttribute('data-plus');
-let count = 0;
+const target = +counter.getAttribute('data-target');
+const plus = counter.getAttribute('data-plus');
 
-let step = Math.ceil(target / 60);
+let start = 0;
+const duration = 1500;
+const stepTime = Math.abs(Math.floor(duration / target));
 
-let interval = setInterval(() => {
+const timer = setInterval(() => {
 
-count += step;
+start++;
 
-if(count >= target){
-count = target;
-clearInterval(interval);
+counter.innerText = start;
+
+if(start >= target){
+
+clearInterval(timer);
 
 if(plus){
 counter.innerText = target + "+";
@@ -805,11 +808,9 @@ counter.innerText = target + "+";
 counter.innerText = target;
 }
 
-}else{
-counter.innerText = count;
 }
 
-},30);
+}, stepTime);
 
 });
 
