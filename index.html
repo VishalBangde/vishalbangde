@@ -310,6 +310,34 @@ align-items:center;
 justify-content:center;
 }
 
+  .career-container{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:40px;
+}
+
+.career-legend{
+display:flex;
+flex-direction:column;
+gap:16px;
+font-size:15px;
+}
+
+.legend-item{
+display:flex;
+align-items:center;
+gap:10px;
+color:#ffffff;
+}
+
+.legend-color{
+width:16px;
+height:16px;
+border-radius:4px;
+display:inline-block;
+}
+
 </style>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
@@ -458,9 +486,32 @@ justify-content:center;
 <div class="panel">
 
 <h3><i class="fa-solid fa-user-tie"></i> Career Roles</h3>
-  
+
+<div class="career-container">
+
 <div class="chart-box">
 <canvas id="chart3"></canvas>
+</div>
+
+<div class="career-legend">
+
+<div class="legend-item">
+<span class="legend-color" style="background:#60a5fa"></span>
+Power BI Developer — <b>4 yrs</b>
+</div>
+
+<div class="legend-item">
+<span class="legend-color" style="background:#a855f7"></span>
+Sr. Power BI Developer — <b>3 yrs</b>
+</div>
+
+<div class="legend-item">
+<span class="legend-color" style="background:#22d3ee"></span>
+Sr. Consultant — <b>1 yr</b>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -600,9 +651,9 @@ new Chart(chart3,{
 type:"doughnut",
 data:{
 labels:[
-"Power BI Developer — 4 yrs",
-"Sr. Power BI Developer — 3 yrs",
-"Sr. Consultant — 1 yr"
+"Power BI Developer",
+"Sr. Power BI Developer",
+"Sr. Consultant"
 ],
 datasets:[{
 data:[4,3,1],
@@ -611,40 +662,19 @@ backgroundColor:[
 "#a855f7",
 "#22d3ee"
 ],
-borderWidth:0,
-hoverOffset:18
+borderWidth:0
 }]
 },
 plugins:[ChartDataLabels],
 options:{
 cutout:"65%",
-layout:{
-padding:10
-},
 plugins:{
-legend:{
-position:"right",
-align:"center",
-labels:{
-color:"#ffffff",
-boxWidth:20,
-padding:18,
-font:{
-size:13,
-weight:"bold"
-}
-}
-},
-tooltip:{
-backgroundColor:"#111827",
-titleColor:"#fff",
-bodyColor:"#d1d5db"
-},
+legend:{display:false},
 datalabels:{
-color:"#ffffff",
+color:"#fff",
 font:{
-weight:"bold",
-size:14
+size:14,
+weight:"bold"
 },
 formatter:(value)=>{
 return value+" yrs";
@@ -657,7 +687,6 @@ duration:1500
 }
 }
 })
-
 
 
 
