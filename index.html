@@ -248,7 +248,10 @@ transform:translateX(6px);
 /* CHART */
 
 .chart-box{
-height:220px;
+height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 /* TECH STACK */
@@ -597,9 +600,9 @@ new Chart(chart3,{
 type:"doughnut",
 data:{
 labels:[
-"Power BI Developer (4 yrs)",
-"Sr. Power BI Developer (3 yrs)",
-"Sr. Consultant (1 yr)"
+"Power BI Developer — 4 yrs",
+"Sr. Power BI Developer — 3 yrs",
+"Sr. Consultant — 1 yr"
 ],
 datasets:[{
 data:[4,3,1],
@@ -609,7 +612,7 @@ backgroundColor:[
 "#22d3ee"
 ],
 borderWidth:0,
-hoverOffset:16
+hoverOffset:18
 }]
 },
 plugins:[ChartDataLabels],
@@ -620,19 +623,16 @@ padding:10
 },
 plugins:{
 legend:{
-position:"top",
+position:"right",
 align:"center",
 labels:{
 color:"#ffffff",
-boxWidth:28,
-boxHeight:12,
-padding:20,
+boxWidth:20,
+padding:18,
 font:{
-size:14,
+size:13,
 weight:"bold"
-},
-usePointStyle:true,
-pointStyle:"rectRounded"
+}
 }
 },
 tooltip:{
@@ -653,11 +653,11 @@ return value+" yrs";
 },
 animation:{
 animateRotate:true,
-duration:1600,
-easing:"easeOutQuart"
+duration:1500
 }
 }
 })
+
 
 
 
