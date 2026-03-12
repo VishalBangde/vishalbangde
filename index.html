@@ -11,10 +11,11 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
 <style>
 
-/* ---------------- GLOBAL ---------------- */
+/* GLOBAL */
 
 *{
 box-sizing:border-box;
@@ -27,10 +28,9 @@ font-family:Segoe UI;
 background:#0b0f1a;
 color:white;
 overflow-x:hidden;
-animation:fadeIn 1s ease;
 }
 
-/* PARTICLE BACKGROUND */
+/* BACKGROUND */
 
 body:before{
 content:"";
@@ -38,21 +38,16 @@ position:fixed;
 width:200%;
 height:200%;
 background:
-radial-gradient(circle at 10% 20%, #60a5fa22 0%, transparent 20%),
-radial-gradient(circle at 80% 30%, #22d3ee22 0%, transparent 20%),
-radial-gradient(circle at 40% 80%, #a855f722 0%, transparent 20%);
-animation:bgMove 18s linear infinite;
+radial-gradient(circle at 20% 20%,#60a5fa22,transparent),
+radial-gradient(circle at 80% 30%,#22d3ee22,transparent),
+radial-gradient(circle at 40% 80%,#a855f722,transparent);
+animation:bgMove 15s linear infinite;
 z-index:-1;
 }
 
 @keyframes bgMove{
 0%{transform:translateX(0)}
 100%{transform:translateX(-40%)}
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1}
 }
 
 /* CONTAINER */
@@ -71,18 +66,18 @@ margin-bottom:40px;
 }
 
 .header h1{
-font-size:46px;
+font-size:44px;
 margin:0;
-font-weight:700;
+font-weight:600;
 letter-spacing:1px;
 background:linear-gradient(90deg,#60a5fa,#22d3ee,#a855f7);
 -webkit-background-clip:text;
 color:transparent;
-animation:gradientText 6s linear infinite;
+animation:gradientMove 6s linear infinite;
 }
 
-@keyframes gradientText{
-0%{filter:hue-rotate(0deg)}
+@keyframes gradientMove{
+0%{filter:hue-rotate(0)}
 100%{filter:hue-rotate(360deg)}
 }
 
@@ -101,12 +96,12 @@ margin-bottom:10px;
 }
 
 .profile-img{
-width:95px;
-height:95px;
+width:90px;
+height:90px;
 border-radius:50%;
 padding:4px;
 background:linear-gradient(120deg,#60a5fa,#22d3ee,#a855f7);
-animation:rotateGlow 6s linear infinite;
+animation:glowRotate 6s linear infinite;
 }
 
 .profile-img img{
@@ -117,9 +112,9 @@ object-fit:cover;
 border:3px solid #0b0f1a;
 }
 
-@keyframes rotateGlow{
+@keyframes glowRotate{
 0%{box-shadow:0 0 10px #60a5fa}
-50%{box-shadow:0 0 18px #a855f7}
+50%{box-shadow:0 0 20px #a855f7}
 100%{box-shadow:0 0 10px #22d3ee}
 }
 
@@ -128,21 +123,26 @@ border:3px solid #0b0f1a;
 .tools span{
 background:#141a2b;
 border:1px solid #283056;
-padding:8px 16px;
+padding:7px 15px;
 border-radius:30px;
 margin:6px;
 display:inline-block;
 font-size:13px;
-transition:.35s;
+transition:.3s;
 }
 
 .tools span:hover{
 transform:translateY(-4px);
-box-shadow:0 0 14px #3b82f6;
+box-shadow:0 0 15px #3b82f6;
 background:#1b2137;
 }
 
-/* KPI GRID */
+.tools a{
+text-decoration:none;
+color:white;
+}
+
+/* KPI */
 
 .kpi-grid{
 display:grid;
@@ -150,35 +150,29 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
-/* CARD */
-
 .card{
-background:rgba(20,26,43,.75);
-backdrop-filter:blur(12px);
+background:#141a2b;
 border-radius:14px;
 padding:22px;
 display:flex;
 align-items:center;
 gap:15px;
 border:1px solid #273059;
-transition:.35s;
+transition:.3s;
 position:relative;
-overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-7px) scale(1.03);
-box-shadow:0 0 35px rgba(96,165,250,.35);
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 0 25px rgba(96,165,250,.4);
 }
-
-/* CARD ICON */
 
 .card i{
 font-size:28px;
-animation:floatIcon 4s ease-in-out infinite;
+animation:iconFloat 4s ease-in-out infinite;
 }
 
-@keyframes floatIcon{
+@keyframes iconFloat{
 0%{transform:translateY(0)}
 50%{transform:translateY(-6px)}
 100%{transform:translateY(0)}
@@ -186,7 +180,7 @@ animation:floatIcon 4s ease-in-out infinite;
 
 .card h2{
 margin:0;
-font-size:28px;
+font-size:26px;
 }
 
 .card p{
@@ -204,17 +198,20 @@ margin-top:30px;
 }
 
 .panel{
-background:rgba(20,26,43,.75);
-backdrop-filter:blur(12px);
+background:#141a2b;
 border-radius:14px;
 padding:20px;
 border:1px solid #273059;
-transition:.35s;
+transition:.3s;
 }
 
 .panel:hover{
 transform:scale(1.03);
 box-shadow:0 0 25px rgba(59,130,246,.3);
+}
+
+.panel h3{
+margin-top:0;
 }
 
 /* LIST */
@@ -241,7 +238,7 @@ transform:translateX(6px);
 /* CHART */
 
 .chart-box{
-height:240px;
+height:260px;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -257,12 +254,12 @@ margin-top:40px;
 .tech span{
 display:inline-block;
 background:#141a2b;
-padding:11px 18px;
+padding:10px 18px;
 border-radius:30px;
 margin:6px;
 border:1px solid #273059;
-transition:.35s;
-animation:float 6s ease-in-out infinite;
+transition:.3s;
+animation:float 6s infinite ease-in-out;
 }
 
 .tech span:hover{
@@ -292,11 +289,16 @@ gap:16px;
 font-size:15px;
 }
 
+.legend-item{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
 .legend-color{
 width:16px;
 height:16px;
 border-radius:4px;
-display:inline-block;
 }
 
 /* RESPONSIVE */
@@ -316,14 +318,13 @@ grid-template-columns:1fr
 }
 
 </style>
-
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-
 </head>
 
 <body>
 
 <div class="container">
+
+<!-- HEADER -->
 
 <div class="header">
 
@@ -346,11 +347,11 @@ grid-template-columns:1fr
 <span><i class="fa-solid fa-phone"></i> +91 7020292767</span>
 </a>
 
-<a href="https://wa.me/917020292767" target="_blank">
+<a href="https://wa.me/917020292767">
 <span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
 </a>
 
-<a href="https://linkedin.com/in/vishal-bangde-66268a2a4" target="_blank">
+<a href="https://linkedin.com/in/vishal-bangde-66268a2a4">
 <span><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
 </a>
 
