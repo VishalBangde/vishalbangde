@@ -454,8 +454,8 @@ justify-content:center;
 
 <div class="panel">
 
-<h3><i class="fa-solid fa-chart-donut"></i> Career Progress</h3>
-
+<h3><i class="fa-solid fa-user-tie"></i> Career Roles</h3>
+  
 <div class="chart-box">
 <canvas id="chart3"></canvas>
 </div>
@@ -597,39 +597,38 @@ new Chart(chart3,{
 type:"doughnut",
 data:{
 labels:[
-"Power BI",
-"DAX",
-"SQL",
-"Excel",
-"Power Platform",
-"Data Modeling"
+"Power BI Developer — 4 yrs",
+"Sr. Power BI Developer — 3 yrs",
+"Sr. Consultant — 1 yr"
 ],
 datasets:[{
-data:[35,20,15,12,10,8],
+data:[4,3,1],
 backgroundColor:[
 "#60a5fa",
 "#a855f7",
-"#22d3ee",
-"#34d399",
-"#fbbf24",
-"#38bdf8"
+"#22d3ee"
 ],
 borderWidth:0,
-hoverOffset:12
+hoverOffset:14
 }]
 },
 plugins:[ChartDataLabels],
 options:{
 cutout:"65%",
+layout:{
+padding:20
+},
 plugins:{
 legend:{
 position:"right",
+align:"center",
 labels:{
 color:"#cbd5e1",
-padding:18,
+padding:22,
 boxWidth:18,
 font:{
-size:13
+size:13,
+weight:"bold"
 }
 }
 },
@@ -642,10 +641,10 @@ datalabels:{
 color:"#ffffff",
 font:{
 weight:"bold",
-size:12
+size:14
 },
 formatter:(value)=>{
-return value+"%";
+return value+" yrs";
 }
 }
 },
