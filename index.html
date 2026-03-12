@@ -612,39 +612,10 @@ borderWidth:0,
 hoverOffset:14
 }]
 },
-plugins:[ChartDataLabels],
 options:{
-cutout:"65%",
-layout:{
-padding:20
-},
-plugins:{
-legend:{
-position:"right",
-align:"center",
-fullSize:true,
-labels:{
-color:"#cbd5e1",
-boxWidth:18,
-boxHeight:18,
-padding:25,
-font:{
-size:13,
-weight:"bold"
-},
-generateLabels:(chart)=>{
-const data = chart.data;
-return data.labels.map((label,i)=>({
-text: label,
-fillStyle: data.datasets[0].backgroundColor[i],
-strokeStyle: data.datasets[0].backgroundColor[i],
-lineWidth:0,
-hidden:false,
-index:i
-}));
+cutout:"65%"
 }
-}
-}
+})
 
 
 
